@@ -1,6 +1,7 @@
 <nav class="uk-navbar">
-    <a href="http:\\www.taikoz.com" class="uk-navbar-brand"><img src="images/taikoz_logo_rough.png" style="height:50px;"></a>
+    <a href="http:\\www.taikoz.com" class="uk-navbar-brand"><img src="../images/taikoz_logo_rough.png" style="height:50px;"></a>
   <div class="uk-navbar-flip uk-hidden-small">
+    <div class="uk-navbar-content navbar-content-pad"><%= link_to "NEWS", posts_path %></div>
     <div class="uk-navbar-content navbar-content-pad"><a href="http:\\www.taikozeducation.com">CLASSES</a></div>
     <div class="uk-navbar-content navbar-content-pad"><a href="mailto:companymanager@taikoz.com">CONTACT</a></div>
     <div class="uk-navbar-content navbar-content-pad-sm"><a href="https://www.facebook.com/TAIKOZfan" class="uk-icon-hover uk-icon-facebook"></a></div>
@@ -14,6 +15,7 @@
 <div id="mobile_nav" class="uk-offcanvas">
   <div class="uk-offcanvas-bar">
     <ul class="uk-nav uk-nav-offcanvas">
+      <li><%= link_to "NEWS", posts_path %></li>
       <li><a href="http:\\www.taikozeducation.com">CLASSES</a></li>
       <li><a href="mailto:companymanager@taikoz.com">CONTACT</a></li>
       <li class="uk-nav-divider"></li>
@@ -21,6 +23,9 @@
       <li><a href="https://twitter.com/Taikoz" class="uk-icon-hover uk-icon-twitter"></a></li>
       <li><a href="https://www.youtube.com/user/SynergyandTaikOzLtd" class="uk-icon-hover uk-icon-youtube"></a></li>
       <li><a href="https://vimeo.com/taikoz" class="uk-icon-hover uk-icon-vimeo"></a></li>
+      <li class="uk-nav-divider"></li>
+      <li><a href="https://www.givenow.com.au/synergyandtaikoz">Donate</a></li>
+      <li><%= link_to "Privacy Policy", static_pages_privacy_policy_path %></li>
     </ul>
   </div>
 </div>

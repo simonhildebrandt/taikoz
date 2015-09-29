@@ -1,11 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h2>
+<h1>
   <%= @post.title %>
-</h2>
+</h1>
 <p>
   Author: <%= @post.author %> Date: <%= @post.created_at %>
 </p>
 <p>
   <%= @post.content %>
+</p>
+<p>
+  <%= link_to image_tag("buttons/Taikoz_Back.png", width: '100'), posts_path, alt: "Back" %>
 </p>

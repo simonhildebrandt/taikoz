@@ -4,7 +4,7 @@
 
     <% @posts.each do |post| %>
         <h2>
-          <%= post.title %>
+          <%= link_to post.title, post_path(post) %>
         </h2>
         <p>
           <strong>Author: </strong><%= post.author %> | <strong>Date: </strong><%= post.created_at.strftime("%A"" ""%d"" ""%B"" ""%Y") %>
@@ -14,3 +14,6 @@
         </p>
         <p><strong><%= link_to "Read more...", post_path(post) %></strong></p>
     <% end %>
+<p>
+  <%= link_to image_tag("buttons/Taikoz_Back.png", width: '100'), root_path, alt: "Back" %>
+</p>
