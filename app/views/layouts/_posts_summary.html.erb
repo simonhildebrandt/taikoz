@@ -13,7 +13,7 @@
             <%= link_to post.title, post_path(post) %>
           </h2>
           <p>
-            <%= truncate(post.content, length: 200) %>
+            <%= truncate(post.content.html_safe, length: 200) %>
           </p>
           <%= link_to image_tag("buttons/Taikoz_LearnMore.png", width: '150'), post_path(post), alt: "Learn More" %>
         </div>
