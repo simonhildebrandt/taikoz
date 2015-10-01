@@ -10,7 +10,7 @@
           <strong>Author: </strong><%= post.author %> | <strong>Date: </strong><%= post.created_at.strftime("%A"" ""%d"" ""%B"" ""%Y") %>
         </p>
         <p>
-          <%= truncate(post.content.html_safe, length: 200) %>
+          <%= truncate(post.content, length: 200, separator: " ", escape: false) %>
         </p>
         <p><strong><%= link_to "Read more...", post_path(post) %></strong></p>
     <% end %>
