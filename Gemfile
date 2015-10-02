@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 gem 'casein'
 gem 'bootstrap-wysihtml5-rails'
+gem 'cocoon'
 # Use postgresql as the database for Active Record
 gem 'pg'
 

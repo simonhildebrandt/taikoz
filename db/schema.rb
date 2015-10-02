@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925062613) do
+ActiveRecord::Schema.define(version: 20151002033211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,22 @@ ActiveRecord::Schema.define(version: 20150925062613) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "cms_fortress_role_details", force: :cascade do |t|
     t.string   "name"
@@ -257,6 +273,28 @@ ActiveRecord::Schema.define(version: 20150925062613) do
   add_index "comfy_cms_snippets", ["site_id", "identifier"], name: "index_comfy_cms_snippets_on_site_id_and_identifier", unique: true, using: :btree
   add_index "comfy_cms_snippets", ["site_id", "position"], name: "index_comfy_cms_snippets_on_site_id_and_position", using: :btree
 
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.text     "details"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "venue"
+    t.string   "street_add"
+    t.string   "city"
+    t.string   "state"
+    t.string   "postcode"
+    t.string   "country"
+    t.integer  "session_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "locations", ["session_id"], name: "index_locations_on_session_id", using: :btree
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "author"
@@ -265,4 +303,20 @@ ActiveRecord::Schema.define(version: 20150925062613) do
     t.datetime "updated_at"
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "start_time"
+    t.time     "duration"
+    t.string   "booking_link"
+    t.text     "session_details"
+    t.integer  "event_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "sessions", ["event_id"], name: "index_sessions_on_event_id", using: :btree
+
+  add_foreign_key "locations", "sessions"
+  add_foreign_key "sessions", "events"
 end

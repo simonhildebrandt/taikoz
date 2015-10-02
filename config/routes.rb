@@ -6,9 +6,12 @@ Rails.application.routes.draw do
 	get 'static_pages/about'
 
 	resources :posts
+  resources :events
+
 
 	#Casein routes
 	namespace :casein do
+		resources :events
 		resources :posts
 	end
 
