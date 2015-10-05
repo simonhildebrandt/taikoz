@@ -1,2 +1,16 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h1>Events</h1>
+
+    <% @events.each do |event| %>
+        <h2>
+          <%= link_to event.name, event_path(event) %>
+        </h2>
+        <p>
+          <%= truncate(event.details, length: 200, separator: " ", escape: false) %>
+        </p>
+        <p><strong><%= link_to "Read more...", event_path(event) %></strong></p>
+    <% end %>
+<p>
+  <%= link_to image_tag("buttons/Taikoz_Back.png", width: '100'), root_path, alt: "Back" %>
+</p>

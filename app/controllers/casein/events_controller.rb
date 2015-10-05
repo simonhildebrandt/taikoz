@@ -21,6 +21,7 @@ module Casein
     def new
       @casein_page_title = 'Add a new event'
     	@event = Event.new
+      @session = @event.sessions.build
     end
 
     def create
@@ -60,8 +61,7 @@ module Casein
     private
 
       def event_params
-        params.require(:event).permit(:name, :details, :image, sessions_attributes: [:id, :event_id, :_destroy, :start_date, :end_date, :start_time, :duration, :booking_link, :session_details])
+        params.require(:event).permit(:name, :details, :image, sessions_attributes: [:id, :event_id, :_destroy, :start_date, :end_date, :start_time, :duration, :booking_link, :session_details, :venue, :street, :city, :state, :postcode, :country])
       end
-
   end
 end

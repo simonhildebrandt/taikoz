@@ -1,21 +1,36 @@
+<div class="nested-fields">
+<hr>
+  <%= link_to_remove_association 'Remove Session', f, class: 'btn btn-warning' %>
 
-  <div>
-    <%= casein_time_select f, f.object, :duration %>
+  <div class="row">
+    <div class="col-lg-4">
+      <%= casein_date_field f, f.object, :start_date %>
+      <%= casein_date_field f, f.object, :end_date %>
+      <%= casein_time_field f, f.object, :start_time %>
+      <%= casein_time_select f, f.object, :duration, casein_label: 'Show Duration' %>
+
+    </div>
+
+    <div class="col-lg-8">
+      <div class="session_margin">
+        <%= casein_text_field f, f.object, :venue %>
+        <%= casein_text_field f, f.object, :street %>
+        <%= casein_text_field f, f.object, :city %>
+        <div class="col-md-6">
+          <%= casein_text_field f, f.object, :state %>
+        </div>
+        <div class="col-md-6">
+          <%= casein_text_field f, f.object, :postcode %>
+        </div>
+        <%= casein_text_field f, f.object, :country %>
+      </div>
+    </div>
   </div>
-  <div>
-    <%= casein_date_select f, f.object, :start_date %>
-  </div>
-  <div>
-    <%= casein_date_select f, f.object, :end_date %>
-  </div>
-  <div>
-    <%= casein_time_select f, f.object, :start_time %>
+  <div class="row">
+    <div class="col-lg-12">
+      <%= casein_url_field f, f.object, :booking_link %>
+      <%= casein_text_area f, f.object, :session_details, rows: 10, class: 'wysihtml5', casein_label: 'Session Specific Details', casein_sublabel: 'Optional' %>
+    </div>
   </div>
 
-
-  <div>
-    <%= casein_url_field f, f.object, :booking_link %>
-  </div>
-  <div>
-    <%= casein_text_area f, f.object, :session_details %>
-  </div>
+</div>

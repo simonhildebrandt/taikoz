@@ -1,2 +1,23 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @event.name %>
+</h1>
+<div>
+  <%= sanitize(@event.details) %>
+</div>
+
+<div class="uk-accordion" data-uk-accordion>
+<% @sessions.each do |session| %>
+    <h3 class="uk-accordion-title"><%= session.venue %></h3>
+    <div class="uk-accordion-content">
+      <%= session.start_time.strftime("%A"" ""%d"" ""%B"" ""%Y") %>
+      <%= session.city %>
+      <%= session.state %>
+    </div>
+<% end %>
+</div>
+
+<p>
+  <%= link_to image_tag("buttons/Taikoz_Back.png", width: '100'), events_path, alt: "Back" %>
+</p>
