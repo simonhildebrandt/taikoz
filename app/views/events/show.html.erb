@@ -7,15 +7,20 @@
   <%= sanitize(@event.details) %>
 </div>
 
-<div class="uk-accordion" data-uk-accordion>
-<% @sessions.each do |session| %>
-    <h3 class="uk-accordion-title"><%= session.venue %></h3>
-    <div class="uk-accordion-content">
-      <%= session.start_time.strftime("%A"" ""%d"" ""%B"" ""%Y") %>
-      <%= session.city %>
-      <%= session.state %>
-    </div>
-<% end %>
+<div class="sum_text_pad">
+  <div class="uk-accordion" data-uk-accordion="{showfirst: false}" %>
+    <% @sessions.each do |session| %>
+      <h3 class="uk-accordion-title"><%= session.start_time.strftime("%A"" ""%d"" ""%B"" ""%Y") %> <%= session.venue %></h3>
+      <div class="uk-accordion-content">
+        <%= session.start_time.strftime("%A"" ""%d"" ""%B"" ""%Y") %>
+        <%= session.city %>
+        <%= session.state %>
+        <p>
+          <%= sanitize(session.session_details) %>
+        </p>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <p>

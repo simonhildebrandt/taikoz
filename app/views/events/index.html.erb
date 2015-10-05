@@ -4,13 +4,13 @@
 
     <% @events.each do |event| %>
         <h2>
-          <%= link_to event.name, event_path(event) %>
+          <%= link_to event.name, event_path(event), :"data-no-turbolink" => true %>
         </h2>
         <p>
           <%= truncate(event.details, length: 200, separator: " ", escape: false) %>
         </p>
-        <p><strong><%= link_to "Read more...", event_path(event) %></strong></p>
+        <p><strong><%= link_to "Read more...", event_path(event), :"data-no-turbolink" => true %></strong></p>
     <% end %>
 <p>
-  <%= link_to image_tag("buttons/Taikoz_Back.png", width: '100'), root_path, alt: "Back" %>
+  <%= link_to image_tag("buttons/Taikoz_Back.png", width: '100'), root_path, alt: "Back", :"data-no-turbolink" => true %>
 </p>
