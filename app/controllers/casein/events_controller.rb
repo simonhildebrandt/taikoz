@@ -21,7 +21,7 @@ module Casein
     def new
       @casein_page_title = 'Add a new event'
     	@event = Event.new
-      @session = @event.sessions.build
+      # @session = @event.sessions.build
     end
 
     def create

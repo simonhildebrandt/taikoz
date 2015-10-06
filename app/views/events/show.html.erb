@@ -10,9 +10,9 @@
 <div class="sum_text_pad">
   <div class="uk-accordion" data-uk-accordion="{showfirst: false}" %>
     <% @sessions.each do |session| %>
-      <h3 class="uk-accordion-title"><%= session.start_time.strftime("%A"" ""%d"" ""%B"" ""%Y") %> <%= session.venue %></h3>
+      <h3 class="uk-accordion-title"><%= session.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y") %> <%= session.venue %></h3>
       <div class="uk-accordion-content">
-        <%= session.start_time.strftime("%A"" ""%d"" ""%B"" ""%Y") %>
+        <%= session.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y") %>
         <%= session.city %>
         <%= session.state %>
         <p>

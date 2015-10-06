@@ -11,9 +11,24 @@
       <div class="uk-visible-small" style="padding-top: 35px">
         <h1>Upcoming Events</h1>
       </div>
-      <p>
-        <img src="images/buttons/Taikoz_LearnMore.png", width="150px">
-      </p>
+      <% @events.each do |event| %>
+        <div class="sum_text_pad">
+          <h2>
+            <%= link_to event.name, event_path(event), :"data-no-turbolink" => true %>
+          </h2>
+          <% event.sessions.first(2).each do |session| %>
+          <hr>
+            <p>
+              <strong><%= session.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y") %></strong>
+              <%= session.venue %>,
+              <%= session.city %>.
+            </p>
+          <% end %>
+          <p>
+            <%= link_to image_tag("buttons/Taikoz_LearnMore.png", width: '150'), event_path(event), alt: "Learn More", :"data-no-turbolink" => true %>
+          </p>
+        </div>
+      <% end %>
     </div>
     <div class="uk-width-small-1-1 uk-width-medium-1-3">
       <div class="uk-hidden-small">
@@ -46,6 +61,8 @@
           </div>
         </figure>
       </div>
+        <h2 class="uk-text-center">SUBSCRIBE</h2>
+
     </div>
   </div>
 </div>
