@@ -39,3 +39,8 @@ footer {
  .sum_text_pad {
    padding-top: 35px;
  }
+
+ .feed_padding {
+   padding-top: 20px;
+   padding-bottom: 20px;
+ }

@@ -3,14 +3,25 @@
 <h1>Events</h1>
 
     <% @events.each do |event| %>
+      <div class="feed_padding">
         <h2>
-          <%= link_to event.name, event_path(event), :"data-no-turbolink" => true %>
+          <%= link_to event.name, event_path(event), style: 'color: #404041', :"data-no-turbolink" => true %>
         </h2>
+        <p>
+          <% unless event.sessions.first.start_date == event.sessions.last.start_date%>
+            <b><%= event.sessions.first.start_date.strftime("%d"" ""%b") %></b> to <b><%= event.sessions.last.start_date.strftime("%d"" ""%b"" ""%Y") %></b>
+          <% else %>
+            <b><%= event.sessions.first.start_date.strftime("%d"" ""%b"" ""%Y") %></b>
+          <% end %>
+        </p>
         <p>
           <%= truncate(event.details, length: 200, separator: " ", escape: false) %>
         </p>
         <p><strong><%= link_to "Read more...", event_path(event), :"data-no-turbolink" => true %></strong></p>
+      </div>
+      <hr>
     <% end %>
+
 <p>
   <%= link_to image_tag("buttons/Taikoz_Back.png", width: '100'), root_path, alt: "Back", :"data-no-turbolink" => true %>
 </p>

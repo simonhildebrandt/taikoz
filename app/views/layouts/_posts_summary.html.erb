@@ -14,12 +14,12 @@
       <% @events.each do |event| %>
         <div class="sum_text_pad">
           <h2>
-            <%= link_to event.name, event_path(event), :"data-no-turbolink" => true %>
+            <%= link_to event.name, event_path(event), style: 'color: #404041', :"data-no-turbolink" => true %>
           </h2>
           <% event.sessions.first(2).each do |session| %>
           <hr>
             <p>
-              <strong><%= session.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y") %></strong>
+              <b><%= session.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y") %></b>
               <%= session.venue %>,
               <%= session.city %>.
             </p>
@@ -44,7 +44,7 @@
       <% @posts.each do |post| %>
         <div class="sum_text_pad">
           <h2>
-            <%= link_to post.title, post_path(post) %>
+            <%= link_to post.title, post_path(post), style: 'color: #404041' %>
           </h2>
           <p>
             <%= truncate(post.content, length: 200, separator: ' ', escape: false) %>
