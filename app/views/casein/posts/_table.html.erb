@@ -16,7 +16,7 @@
 			<td><%= casein_table_cell_link post.created_at.strftime("%v"", ""%T"), casein_post_path(post) %></td>
 			<td><%= casein_table_cell_link post.title, casein_post_path(post) %></td>
 			<td><%= casein_table_cell_link post.author, casein_post_path(post) %></td>
-			<td><%= casein_table_cell_link truncate(post.content, length: 150), casein_post_path(post) %></td>
+			<td><%= casein_table_cell_link truncate(post.content, length: 240, separator: ' ', escape: false), casein_post_path(post) %></td>
 			<td class="delete">
 				<%= link_to(casein_show_row_icon("trash"), casein_post_path(post), :method => :delete, :data => { :confirm => "Are you sure you want to delete this post?" }) %>
 			</td>
