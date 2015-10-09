@@ -4,4 +4,12 @@
 //= require bootstrap-wysihtml5
 //= require cocoon
 
-$('.wysihtml5').wysihtml5()
+$(function(){
+  $('.wysihtml5').wysihtml5();
+  $(document).on("cocoon:after-insert", function(e, insertedItem){
+    insertedItem.find('.wysihtml5').wysihtml5();
+  });
+  $(document).on("cocoon:before-insert", function(e, insertedItem){
+    insertedItem.fadeIn('slow');
+  });
+});

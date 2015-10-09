@@ -2,21 +2,21 @@
 
 module Casein
   class PostsController < Casein::CaseinController
-  
+
     ## optional filters for defining usage according to Casein::AdminUser access_levels
     # before_filter :needs_admin, :except => [:action1, :action2]
     # before_filter :needs_admin_or_current_user, :only => [:action1, :action2]
-  
+
     def index
       @casein_page_title = 'Posts'
   		@posts = Post.order(sort_order(:title)).paginate :page => params[:page]
     end
-  
+
     def show
       @casein_page_title = 'View post'
       @post = Post.find params[:id]
     end
-  
+
     def new
       @casein_page_title = 'Add a new post'
     	@post = Post.new
@@ -24,7 +24,7 @@ module Casein
 
     def create
       @post = Post.new post_params
-    
+
       if @post.save
         flash[:notice] = 'Post created'
         redirect_to casein_posts_path
@@ -33,12 +33,12 @@ module Casein
         render :action => :new
       end
     end
-  
+
     def update
       @casein_page_title = 'Update post'
-      
+
       @post = Post.find params[:id]
-    
+
       if @post.update_attributes post_params
         flash[:notice] = 'Post has been updated'
         redirect_to casein_posts_path
@@ -47,7 +47,7 @@ module Casein
         render :action => :show
       end
     end
- 
+
     def destroy
       @post = Post.find params[:id]
 
@@ -55,11 +55,11 @@ module Casein
       flash[:notice] = 'Post has been deleted'
       redirect_to casein_posts_path
     end
-  
+
     private
-      
+
       def post_params
-        params.require(:post).permit(:title, :author, :content)
+        params.require(:post).permit(:title, :author, :content, :image_1, :image_2, :image_3, :image_4, :image_5)
       end
 
   end

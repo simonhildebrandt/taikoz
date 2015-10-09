@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151004015339) do
+ActiveRecord::Schema.define(version: 20151008032643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -301,6 +301,11 @@ ActiveRecord::Schema.define(version: 20151004015339) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_1"
+    t.string   "image_2"
+    t.string   "image_3"
+    t.string   "image_4"
+    t.string   "image_5"
   end
 
   create_table "sessions", force: :cascade do |t|

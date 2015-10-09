@@ -4,4 +4,6 @@ class Event < ActiveRecord::Base
 
   validates_presence_of :sessions
   validates :name, presence: :true
+
+  mount_uploader :image, ImageUploader
 end

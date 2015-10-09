@@ -2,10 +2,10 @@
 
 
 <div class="row">
-	<div class="col-lg-6">
+	<div class="col-lg-8">
 		<%= casein_text_field f, f.object, :title %>
 	</div>
-	<div class="col-lg-6">
+	<div class="col-lg-4">
 		<%= casein_text_field f, f.object, :author %>
 	</div>
 </div>
@@ -14,8 +14,31 @@
 	<div class="col-lg-12">
 		<%= casein_text_area_big f, f.object, :content, rows: 20, class: 'wysihtml5' %>
 	</div>
-
-	<div class="col-lg-0">
-
-	</div>
+</div>
+<div class="row">
+	<div class="col-md-4">
+			<%= casein_file_field f, f.object, "HeroImage", :image_1 %><%# casein_hidden_field f, f.object, :image_1_cache %>
+			<%= casein_file_field f, f.object, "Image2", :image_2%><%# casein_hidden_field f, f.object, :image_2_cache %>
+			<%= casein_file_field f, f.object, "Image3", :image_3 %><%# casein_hidden_field f, f.object, :image_3_cache %>
+			<%= casein_file_field f, f.object, "Image4", :image_4 %><%# casein_hidden_field f, f.object, :image_4_cache %>
+			<%= casein_file_field f, f.object, "Image5", :image_5 %><%# casein_hidden_field f, f.object, :image_5_cache %>
+		</div>
+		<div class="col-md-8">
+			<% unless @post.image_1 == nil %>
+				<p>Hero Image</p>
+				<%= cl_image_tag(@post.image_1, width: 400) %>
+			<% end %>
+			<% unless @post.image_2 == nil %>
+				<%= cl_image_tag(@post.image_2, width: 200) %>
+			<% end %>
+			<% unless @post.image_3 == nil %>
+				<%= cl_image_tag(@post.image_3, width: 200) %>
+			<% end %>
+			<% unless @post.image_4 == nil %>
+				<%= cl_image_tag(@post.image_4, width: 200) %>
+			<% end %>
+			<% unless @post.image_5 == nil %>
+				<%= cl_image_tag(@post.image_5, width: 200) %>
+			<% end %>
+		</div>
 </div>

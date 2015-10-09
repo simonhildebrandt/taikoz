@@ -5,7 +5,11 @@
 		<%= casein_text_field f, f.object, :name, casein_label: 'Show Name' %>
 	</div>
 	<div class="col-lg-6">
-		<%= casein_text_field f, f.object, :image, casein_label: 'Main Image' %>
+		<%= casein_file_field f, f.object, "HeroImage", :image, casein_label: 'Main Image' %><%= casein_hidden_field f, f.object, :image_cache %>
+		<% unless @event.image == nil %>
+			<p>Main Image</p>
+			<%= cl_image_tag(@event.image, width: 400) %>
+		<% end %>
 	</div>
 </div>
 
@@ -16,12 +20,13 @@
 </div>
 <div class="row">
 	<div class="col-lg-12">
-		<div class="pull-right">
-			<%= link_to_add_association 'Add Performace', f, :sessions, class: 'btn btn-success' %>
-		</div>
+
 		<%= f.fields_for :sessions do |session| %>
 			<%= render 'session_fields', :f => session %>
 		<% end %>
+		<div class="pull-right">
+			<%= link_to_add_association 'Add Performace', f, :sessions, class: 'btn btn-success' %>
+		</div>
 	</div>
 
 </div>
