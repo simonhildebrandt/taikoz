@@ -16,20 +16,29 @@
 <div>
   <%= sanitize(@post.content) %>
 </div>
-<div class="uk-text-center">
-  <a href="<%= @post.image_1.url %>" data-uk-lightbox><%= (cl_image_tag @post.image_1, width: 200) %></a>
-  <% unless @post.image_2 == nil %>
-    <a href="<%= @post.image_2.url %>" data-uk-lightbox><%= (cl_image_tag @post.image_2, width: 200) %></a>
+<div class="uk-text-center main_blocks">
+    <a href="<%= @post.image_1.url %>" data-uk-lightbox="{group:'post_images'}" class="article_img_pad"><%= (cl_image_tag @post.image_1, width: 200) %></a>
+
+  <% unless @post.image_2.url == nil %>
+    <a href="<%= @post.image_2.url %>" data-uk-lightbox="{group:'post_images'}" class="article_img_pad"><%= (cl_image_tag @post.image_2, width: 200) %></a>
   <% end %>
-  <% unless @post.image_3 == nil %>
-    <a href="<%= @post.image_3.url %>" data-uk-lightbox><%= (cl_image_tag @post.image_3, width: 200) %></a>
+
+  <% unless @post.image_3.url == nil %>
+    <a href="<%= @post.image_3.url %>" data-uk-lightbox="{group:'post_images'}" class="article_img_pad"><%= (cl_image_tag @post.image_3, width: 200) %></a>
   <% end %>
-  <% unless @post.image_4 == nil %>
-    <a href="<%= @post.image_4.url %>" data-uk-lightbox><%= (cl_image_tag @post.image_4, width: 200) %></a>
+
+  <% unless @post.image_4.url == nil %>
+    <a href="<%= @post.image_4.url %>" data-uk-lightbox="{group:'post_images'}" class="article_img_pad"><%= (cl_image_tag @post.image_4, width: 200) %></a>
   <% end %>
-  <% unless @post.image_5 == nil %>
-    <a href="<%= @post.image_5.url %>" data-uk-lightbox><%= (cl_image_tag @post.image_5, width: 200) %></a>
+
+  <% unless @post.image_5.url == nil %>
+    <a href="<%= @post.image_5.url %>" data-uk-lightbox="{group:'post_images'}" class="article_img_pad"><%= (cl_image_tag @post.image_5, width: 200) %></a>
   <% end %>
+
+  <%# @post.image.each do |img| %>
+  <%# display_link(img.url) if img.url.present? %>
+  <%# end %>
+
 </div>
 <p>
   <%= link_to image_tag("buttons/Taikoz_Back.png", width: '100'), posts_path, alt: "Back" %>

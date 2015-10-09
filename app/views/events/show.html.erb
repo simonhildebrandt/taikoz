@@ -1,8 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1>
-  <%= @event.name %>
-</h1>
+<div class="uk-grid">
+  <div class="uk-grid-1-2">
+    <%= cl_image_tag (@event.image), width: 400 %>
+  </div>
+  <div class="uk-grid-2-2">
+    <h1>
+      <%= @event.name %>
+    </h1>
+    <p>
+      <% @sessions.each do |session| %>
+        <li>
+          <b><%= session.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y") %></b>
+          <%= session.venue %>
+          <%= session.city %>
+          <%= session.state %>
+        </li>
+      <% end %>
+    </p>
+  </div>
+</div>
 <div>
   <%= sanitize(@event.details) %>
 </div>

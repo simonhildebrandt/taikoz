@@ -4,8 +4,17 @@
 
     <% @events.each do |event| %>
       <div class="feed_padding">
+        <div class="uk-grid">
+          <div class="uk-width-medium-1-4">
+            <div class="uk-vertical-align">
+              <div class="uk-vertical-align-middle">
+                <%= link_to (cl_image_tag(event.image, width: 220)), event_path(event) %>
+              </div>
+            </div>
+          </div>
+          <div class="uk-width-medium-3-4">
         <h2>
-          <%= link_to event.name, event_path(event), style: 'color: #404041', :"data-no-turbolink" => true %>
+          <%= link_to event.name, event_path(event), style: 'color: #404041' %>
         </h2>
         <p>
           <% unless event.sessions.first.start_date == event.sessions.last.start_date%>
@@ -17,11 +26,13 @@
         <p>
           <%= truncate(event.details, length: 200, separator: " ", escape: false) %>
         </p>
-        <p><strong><%= link_to "Read more...", event_path(event), :"data-no-turbolink" => true %></strong></p>
+        <p><strong><%= link_to "Read more...", event_path(event) %></strong></p>
       </div>
+    </div>
+  </div>
       <hr>
     <% end %>
 
 <p>
-  <%= link_to image_tag("buttons/Taikoz_Back.png", width: '100'), root_path, alt: "Back", :"data-no-turbolink" => true %>
+  <%= link_to image_tag("buttons/Taikoz_Back.png", width: '100'), root_path, alt: "Back" %>
 </p>
