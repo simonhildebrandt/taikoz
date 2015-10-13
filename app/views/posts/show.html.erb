@@ -9,11 +9,14 @@
       <%= @post.title %>
     </h1>
     <p>
-      Author: <%= @post.author %> Date: <%= @post.created_at.strftime("%A"" ""%d"" ""%B"" ""%Y") %>
+      Author: <%= @post.author %>
+    </p>
+    <p>
+      Date: <%= @post.created_at.strftime("%A"" ""%d"" ""%B"" ""%Y") %>
     </p>
   </div>
 </div>
-<div>
+<div class="sum_text_pad">
   <%= sanitize(@post.content) %>
 </div>
 <div class="uk-text-center main_blocks">

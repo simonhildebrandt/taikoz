@@ -14,21 +14,17 @@
       <% @events.each do |event| %>
         <div class="sum_text_pad">
           <h2>
-            <%= link_to event.name, event_path(event), style: 'color: #404041', :"data-no-turbolink" => true %>
+            <%= link_to event.name, event_path(event), style: 'color: #404041' %>
            </h2>
-          <!--<%# event.sessions.first(2).each do |session| %>
-            <p>
-              <b><%# session.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y") %></b>
-              <%# session.venue %>,
-              <%# session.city %>.
-            </p> -->
-          <%# end %>
           <p>
             <% unless event.sessions.first.start_date == event.sessions.last.start_date%>
               <b><%= event.sessions.first.start_date.strftime("%d"" ""%b") %></b> to <b><%= event.sessions.last.start_date.strftime("%d"" ""%b"" ""%Y") %></b>
             <% else %>
               <b><%= event.sessions.first.start_date.strftime("%d"" ""%b"" ""%Y") %></b>
             <% end %>
+          </p>
+          <p>
+            <%= truncate(event.details, length: 250, separator: ' ', escape: false) %>
           </p>
           <p>
             <%= link_to image_tag("buttons/Taikoz_LearnMore.png", width: '150'), event_path(event), alt: "Learn More", :"data-no-turbolink" => true %>
@@ -44,7 +40,7 @@
           </div>
         </figure>
       </div>
-      <div class="uk-visible-small">
+      <div class="uk-visible-small" style="padding-top: 35px">
         <h1>Current News</h1>
       </div>
       <% @posts.each do |post| %>
@@ -53,7 +49,10 @@
             <%= link_to post.title, post_path(post), style: 'color: #404041' %>
           </h2>
           <p>
-            <%= truncate(post.content, length: 200, separator: ' ', escape: false) %>
+            Author: <%= post.author %>
+          </p>
+          <p>
+            <%= truncate(post.content, length: 250, separator: ' ', escape: false) %>
           </p>
           <%= link_to image_tag("buttons/Taikoz_LearnMore.png", width: '150'), post_path(post), alt: "Learn More" %>
         </div>
@@ -67,8 +66,16 @@
           </div>
         </figure>
       </div>
-        <h2 class="uk-text-center">SUBSCRIBE</h2>
-          <div class="fb-page uk-text-center" data-href="https://www.facebook.com/TAIKOZfan" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/TAIKOZfan"><a href="https://www.facebook.com/TAIKOZfan">Facebook</a></blockquote></div></div>
+      <div class="uk-visible-small" style="padding-top: 35px">
+        <h1>Subscribe</h1>
       </div>
+      <div class="sum_text_pad">
+        <h2 class="uk-hidden-small">SUBSCRIBE <small><a href="#subscribe-modal" data-uk-modal>Click Here</a></small></h2>
+          <div class="fb-page uk-text-center" data-href="https://www.facebook.com/TAIKOZfan" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-show-posts="true">
+            <div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/TAIKOZfan"><a href="https://www.facebook.com/TAIKOZfan">Facebook</a></blockquote>
+            </div>
+          </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,13 +1,3 @@
-GIT
-  remote: git://github.com/carrierwaveuploader/carrierwave.git
-  revision: 1e4e7b0bf20fee70d8ac3815d0921144f39e14cf
-  specs:
-    carrierwave (0.10.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -79,6 +69,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     casein (5.1.1.5)
       authlogic (= 3.4.4)
       bootstrap-sass (= 3.3.3)
@@ -268,7 +263,7 @@ DEPENDENCIES
   bootstrap-wysihtml5-rails
   byebug
   capybara
-  carrierwave!
+  carrierwave
   casein
   cloudinary
   cocoon
@@ -291,6 +286,7 @@ DEPENDENCIES
   spring
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  will_paginate
 
 BUNDLED WITH
    1.10.5

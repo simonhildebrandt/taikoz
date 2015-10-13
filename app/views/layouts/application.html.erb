@@ -35,9 +35,31 @@
 
   <div class="uk-container uk-container-center">
     <%= render "layouts/navbar" %>
-    <%= yield %>
+      <% if home_controller? %>
+        <%= yield %>
+      <% else %>
+        <div class="uk-grid uk-hidden-small">
+          <div class="uk-width-3-4">
+            <%= yield %>
+          </div>
+          <div class="uk-width-1-4">
+            <%= render 'layouts/sidebar' %>
+          </div>
+        </div>
+        <div class="uk-visible-small">
+          <%= yield %>
+        </div>
+      <% end %>
     <%= render "layouts/footer" %>
   </div>
+
+<!--SubscribeModal-->
+<div id="subscribe-modal" class="uk-modal">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        This will be the subscribe form.
+    </div>
+</div>
 
 </body>
 </html>

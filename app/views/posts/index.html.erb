@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to image_tag("taikoz_latest_news_small.jpg"), posts_path, class: 'uk-text-center' %>
 <h1>News</h1>
     <% @posts.each do |post| %>
       <div class="feed_padding">
@@ -27,6 +28,8 @@
       </div>
       <hr>
     <% end %>
+
+<%= will_paginate @posts %>
 <p>
   <%= link_to image_tag("buttons/Taikoz_Back.png", width: '100'), root_path, alt: "Back" %>
 </p>

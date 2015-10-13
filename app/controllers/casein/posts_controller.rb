@@ -9,7 +9,7 @@ module Casein
 
     def index
       @casein_page_title = 'Posts'
-  		@posts = Post.order(sort_order(:title)).paginate :page => params[:page]
+  		@posts = Post.order(sort_order(:created_at)).paginate :page => params[:page]
     end
 
     def show
@@ -61,6 +61,5 @@ module Casein
       def post_params
         params.require(:post).permit(:title, :author, :content, :image_1, :image_2, :image_3, :image_4, :image_5)
       end
-
   end
 end

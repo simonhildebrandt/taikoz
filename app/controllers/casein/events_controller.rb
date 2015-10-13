@@ -15,7 +15,6 @@ module Casein
     def show
       @casein_page_title = 'View event'
       @event = Event.find params[:id]
-
     end
 
     def new
@@ -58,10 +57,11 @@ module Casein
       redirect_to casein_events_path
     end
 
+
     private
 
       def event_params
-        params.require(:event).permit(:name, :details, :image, sessions_attributes: [:id, :event_id, :_destroy, :start_date, :end_date, :start_time, :duration, :booking_link, :session_details, :venue, :street, :city, :state, :postcode, :country])
+        params.require(:event).permit(:name, :details, :image, :image_cache, :_destroy, :remove_image, sessions_attributes: [:id, :event_id, :_destroy, :start_date, :end_date, :start_time, :duration, :booking_link, :session_details, :venue, :street, :city, :state, :postcode, :country])
       end
   end
 end

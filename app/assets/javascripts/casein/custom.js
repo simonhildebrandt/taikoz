@@ -3,6 +3,7 @@
 
 //= require bootstrap-wysihtml5
 //= require cocoon
+//= require cloudinary
 
 $(function(){
   $('.wysihtml5').wysihtml5();
