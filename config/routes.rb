@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
 	get 'static_pages/privacy_policy'
 	get 'static_pages/about'
+  get 'static_pages/donors'
 
 	resources :posts
   resources :events

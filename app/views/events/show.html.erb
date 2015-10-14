@@ -29,9 +29,29 @@
     <% @sessions.each do |session| %>
       <h3 class="uk-accordion-title"><%= session.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y") %> <%= session.venue %></h3>
       <div class="uk-accordion-content">
-        <%= session.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y") %>
-        <%= session.city %>
-        <%= session.state %>
+        <div class="uk-grid">
+          <div class="uk-width-3-4">
+            <h3>
+              <%= session.venue %>
+            </h3>
+            <%= session.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y") %>
+            <p>
+              <%= session.street if session.street? %>
+              <%= session.city %>
+              <%= session.state %>
+            </p>
+          </div>
+          <div class="uk-width-1-4">
+            <div class="uk-text-right">
+              <% if session.booking_link? %>
+                <p>
+                  <%= link_to image_tag('buttons/Taikoz_BookNow.png', width: '120'), session.booking_link %>
+                </p>
+                </br>
+              <% end %>
+            </div>
+          </div>
+        </div>
         <p>
           <%= sanitize(session.session_details) %>
         </p>
