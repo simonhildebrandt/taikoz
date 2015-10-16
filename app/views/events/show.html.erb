@@ -20,7 +20,7 @@
     </p>
   </div>
 </div>
-<div class="sum_text_pad">
+<div class="sum_text_pad longfont">
   <%= sanitize(@event.details) %>
 </div>
 
@@ -52,9 +52,11 @@
             </div>
           </div>
         </div>
-        <p>
-          <%= sanitize(session.session_details) %>
-        </p>
+        <div class="longfont">
+          <p>
+            <%= sanitize(session.session_details) %>
+          </p>
+        </div>
       </div>
     <% end %>
   </div>

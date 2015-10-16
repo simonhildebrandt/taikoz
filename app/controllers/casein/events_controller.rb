@@ -14,7 +14,7 @@ module Casein
 
     def show
       @casein_page_title = 'View event'
-      @event = Event.find params[:id]
+      @event = Event.friendly.find params[:id]
     end
 
     def new
@@ -38,7 +38,7 @@ module Casein
     def update
       @casein_page_title = 'Update event'
 
-      @event = Event.find params[:id]
+      @event = Event.friendly.find params[:id]
 
       if @event.update_attributes event_params
         flash[:notice] = 'Event has been updated'
@@ -50,7 +50,7 @@ module Casein
     end
 
     def destroy
-      @event = Event.find params[:id]
+      @event = Event.friendly.find params[:id]
 
       @event.destroy
       flash[:notice] = 'Event has been deleted'

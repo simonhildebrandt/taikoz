@@ -8,15 +8,15 @@
     <h1>
       <%= @post.title %>
     </h1>
-    <p>
+    <h3>
       Author: <%= @post.author %>
-    </p>
-    <p>
+    </h3>
+    <h3>
       Date: <%= @post.created_at.strftime("%A"" ""%d"" ""%B"" ""%Y") %>
-    </p>
+    </h3>
   </div>
 </div>
-<div class="sum_text_pad">
+<div class="sum_text_pad longfont">
   <%= sanitize(@post.content) %>
 </div>
 <div class="uk-text-center main_blocks">

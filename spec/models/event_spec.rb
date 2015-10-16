@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  before(:all) do
-    event = Event.create!(name: "SPEC")
-    event.session = Session.create!
-  end
-
-  it "creates an event entry" do
-    expect(event).not_to be_nil
+  it "caches session start and end date onto the event" do
+    session = Session.new(start_date: DateTime.new(2000, 1, 1), end_date: DateTime.new(2001, 1, 1), venue: "Riverside")
+    event = Event.create!(sessions: [ session ], name: "Gig")
+    event.reload
+    expect(event.start_date).to eq (session.start_date)
+    expect(event.end_date).to eq (session.end_date)
   end
 
 end

@@ -14,7 +14,7 @@ module Casein
 
     def show
       @casein_page_title = 'View post'
-      @post = Post.find params[:id]
+      @post = Post.friendly.find params[:id]
     end
 
     def new
@@ -37,7 +37,7 @@ module Casein
     def update
       @casein_page_title = 'Update post'
 
-      @post = Post.find params[:id]
+      @post = Post.friendly.find params[:id]
 
       if @post.update_attributes post_params
         flash[:notice] = 'Post has been updated'
@@ -49,7 +49,7 @@ module Casein
     end
 
     def destroy
-      @post = Post.find params[:id]
+      @post = Post.friendly.find params[:id]
 
       @post.destroy
       flash[:notice] = 'Post has been deleted'
@@ -59,7 +59,7 @@ module Casein
     private
 
       def post_params
-        params.require(:post).permit(:title, :author, :content, :image_1, :image_2, :image_3, :image_4, :image_5)
+        params.require(:post).permit(:title, :author, :content, :image_1, :image_2, :image_3, :image_4, :image_5, :remove_image_1, :remove_image_2, :remove_image_3, :remove_image_4, :remove_image_5)
       end
   end
 end

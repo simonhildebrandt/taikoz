@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-	get 'static_pages/privacy_policy'
-	get 'static_pages/about'
-  get 'static_pages/donors'
+	get 'privacy_policy', to: 'static_pages#privacy_policy'
+	get 'about', to: 'static_pages#about'
+  get 'donors', to: 'static_pages#donors'
 
 	resources :posts
   resources :events

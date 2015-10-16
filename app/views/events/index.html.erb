@@ -2,7 +2,7 @@
 
 <h1>Events</h1>
 
-    <% @events.each do |event| %>
+    <% @events.order(start_date: :asc).each do |event| %>
       <div class="feed_padding">
         <div class="uk-grid">
           <div class="uk-width-medium-1-4">
@@ -23,9 +23,11 @@
             <b><%= event.sessions.first.start_date.strftime("%d"" ""%b"" ""%Y") %></b>
           <% end %>
         </p>
-        <p>
-          <%= truncate(event.details, length: 200, separator: " ", escape: false) %>
-        </p>
+        <div class="longfont">
+          <p>
+            <%= truncate(event.details, length: 200, separator: " ", escape: false) %>
+          </p>
+        </div>
         <p><strong><%= link_to "Read more...", event_path(event) %></strong></p>
       </div>
     </div>

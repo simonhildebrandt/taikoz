@@ -5,5 +5,8 @@ class StaticPagesController < ApplicationController
 
   def about
   end
-  
+
+  def donors
+  end
+
 end

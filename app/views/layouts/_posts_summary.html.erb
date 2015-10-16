@@ -23,11 +23,13 @@
               <b><%= event.sessions.first.start_date.strftime("%d"" ""%b"" ""%Y") %></b>
             <% end %>
           </p>
+          <div class="longfont">
+            <p>
+              <%= truncate(event.details, length: 250, separator: ' ', escape: false) %>
+            </p>
+          </div>
           <p>
-            <%= truncate(event.details, length: 250, separator: ' ', escape: false) %>
-          </p>
-          <p>
-            <%= link_to image_tag("buttons/Taikoz_LearnMore.png", width: '150'), event_path(event), alt: "Learn More", :"data-no-turbolink" => true %>
+            <%= link_to image_tag("buttons/Taikoz_LearnMore.png", width: '150'), event_path(event), alt: "Learn More" %>
           </p>
         </div>
       <% end %>
@@ -51,9 +53,11 @@
           <p>
             Author: <%= post.author %>
           </p>
-          <p>
-            <%= truncate(post.content, length: 250, separator: ' ', escape: false) %>
-          </p>
+          <div class="longfont">
+            <p>
+              <%= truncate(post.content, length: 250, separator: ' ', escape: false) %>
+            </p>
+          </div>
           <%= link_to image_tag("buttons/Taikoz_LearnMore.png", width: '150'), post_path(post), alt: "Learn More" %>
         </div>
       <% end %>
