@@ -10,7 +10,9 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'will_paginate'
 gem 'friendly_id', '~> 5.1.0'
+gem 'state_machines-activerecord'
 gem 'state_machines'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 

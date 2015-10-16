@@ -9,6 +9,9 @@ class Event < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   # default_scope -> { order(start_date: :asc)}
+  scope :current_events, -> { where(state: "current") }
+  scope :past_events,    -> { where(state: "past") }
+  
 
   extend FriendlyId
   friendly_id :name, use: :slugged
@@ -20,4 +23,25 @@ class Event < ActiveRecord::Base
     self.end_date = sessions.collect(&:end_date).max
     save!
   end
+
+
+  state_machine :state, initial: :current do
+    event :make_past do
+      transition current: :past
+    end
+  end
+
+  state_machine :event_status, initial: :draft do
+    event :publish do
+      transition draft: :published
+    end
+  end
+
+  def self.check_current_events
+      events.each do |event|
+        event.make_past
+        save!
+      end
+  end
+
 end
