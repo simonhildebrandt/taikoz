@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   has_many :sessions, dependent: :destroy
   accepts_nested_attributes_for :sessions, reject_if: :all_blank, allow_destroy: true
 
-  validates_presence_of :sessions
+  # validates_presence_of :sessions
   validates :name, presence: :true
 
   mount_uploader :image, ImageUploader
@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
   # default_scope -> { order(start_date: :asc)}
   scope :current_events, -> { where(state: "current") }
   scope :past_events,    -> { where(state: "past") }
-  
+
 
   extend FriendlyId
   friendly_id :name, use: :slugged
@@ -37,11 +37,18 @@ class Event < ActiveRecord::Base
     end
   end
 
-  def self.check_current_events
-      events.each do |event|
-        event.make_past
-        save!
-      end
+  def self.change_event_state
+    events = current_events
+    events.where(["end_date < ?", Time.current]).each do |event|
+      event.make_past
+    end
   end
+
+  # def change_event_state
+  #     current_events
+  #     if event.end_date < DateTime.current
+  #       make_past
+  #     end
+  # end
 
 end

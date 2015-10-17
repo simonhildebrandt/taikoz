@@ -9,6 +9,7 @@
 			<th><%= casein_sort_link "Last Session", :end_date %></th>
 			<th>Sessions</th>
 			<th><%= casein_sort_link "Details", :details %></th>
+			<th><%= casein_sort_link "State", :state %></th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
@@ -21,6 +22,7 @@
 			<td><%= casein_table_cell_link event.end_date.strftime("%A"" ""%d"" ""%B"" ""%Y"), casein_event_path(event) if event.end_date.present? %></td>
 			<td><%= casein_table_cell_link event.sessions.count, casein_event_path(event) %></td>
 			<td><%= casein_table_cell_link truncate(event.details, length: 240, separator: ' ', escape: false), casein_event_path(event) %></td>
+			<td><strong><%= casein_table_cell_link event.state.humanize, casein_event_path(event) if event.state? %></strong></td>
 
 			<td class="delete">
 				<%= link_to(casein_show_row_icon("trash"), casein_event_path(event), :method => :delete, :data => { :confirm => "Are you sure you want to delete this event?" }) %>
