@@ -10,4 +10,14 @@ class Post < ActiveRecord::Base
 
   # default_scope -> { order(created_at: :asc)}
 
+  scope :draft,      -> { where(post_status: "Draft") }
+  scope :published,  -> { where(post_status: "Published") }
+
+  state_machine :post_status, initial: :Draft do
+    event :publish do
+      transition Draft: :Published
+    end
+  end
+
+
 end

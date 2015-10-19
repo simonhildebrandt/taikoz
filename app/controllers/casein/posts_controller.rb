@@ -59,7 +59,7 @@ module Casein
     private
 
       def post_params
-        params.require(:post).permit(:title, :author, :content, :image_1, :image_2, :image_3, :image_4, :image_5, :remove_image_1, :remove_image_2, :remove_image_3, :remove_image_4, :remove_image_5)
+        params.require(:post).permit(:title, :author, :content, :post_status, :image_1, :image_2, :image_3, :image_4, :image_5, :remove_image_1, :remove_image_2, :remove_image_3, :remove_image_4, :remove_image_5)
       end
   end
 end

@@ -4,7 +4,7 @@
       <div class="uk-hidden-small">
         <figure class="uk-overlay uk-overlay-hover">
           <div class="uk-overlay uk-overlay-scale">
-            <%= link_to image_tag("taikoz_upcoming_small.jpg"), events_path, class: 'uk-text-center' %>
+            <%= link_to cl_image_tag("taikoz_upcoming.jpg", :width=>600, :crop=>:scale), events_path, class: 'uk-text-center' %>
           </div>
         </figure>
       </div>
@@ -38,7 +38,7 @@
       <div class="uk-hidden-small">
         <figure class="uk-overlay uk-overlay-hover">
           <div class="uk-overlay-scale">
-            <%= link_to image_tag("taikoz_latest_news_small.jpg"), posts_path, class: 'uk-text-center' %>
+            <%= link_to cl_image_tag("taikoz_new.jpg", :width=>600, :crop=>:scale), posts_path, class: 'uk-text-center' %>
           </div>
         </figure>
       </div>
@@ -66,7 +66,7 @@
       <div class="uk-hidden-small">
         <figure class="uk-overlay uk-overlay-hover">
           <div class="uk-overlay-scale">
-            <%= link_to image_tag("no_use_small.jpg") %>
+            <%= link_to cl_image_tag("taikoz_follow_us.jpg", :width=>600, :crop=>:scale) %>
           </div>
         </figure>
       </div>
