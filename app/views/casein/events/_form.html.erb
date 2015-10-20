@@ -30,9 +30,9 @@
 			</p>
 		<% end %>
 		<p>
-			<strong>Event Status: </strong><%= @event.event_status.humanize %>
-			
+			<%= casein_select f, f.object, :event_status, ["Draft", "Published"] %>
 		</p>
+
 	</div>
 	<div class="col-lg-6">
 			<%= cl_image_tag(@event.image, width: 400) %>

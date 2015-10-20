@@ -1,0 +1,17 @@
+<div class="sum_text_pad">
+  <h1>News</h1>
+<% @posts.each do |post| %>
+    <h2>
+      <%= link_to post.title, post_path(post), style: 'color: #404041' %>
+    </h2>
+    <p>
+      Author: <%= post.author %>
+    </p>
+    <div class="longfont">
+      <p>
+        <%= truncate(post.content, length: 150, separator: ' ', escape: false) %>
+      </p>
+    </div>
+    <%= link_to image_tag("buttons/Taikoz_LearnMore.png", width: '150'), post_path(post), alt: "Learn More" %>
+  </div>
+<% end %>

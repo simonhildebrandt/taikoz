@@ -1,0 +1,23 @@
+<div class="sum_text_pad">
+  <h1>Upcoming Events</h1>
+  <% @events.each do |event| %>
+  <h2>
+    <%= link_to event.name, event_path(event), style: 'color: #404041' %>
+  </h2>
+  <p>
+    <% unless event.sessions.first.start_date == event.sessions.last.start_date%>
+      <b><%= event.sessions.first.start_date.strftime("%d"" ""%b") %></b> to <b><%= event.sessions.last.start_date.strftime("%d"" ""%b"" ""%Y") %></b>
+    <% else %>
+      <b><%= event.sessions.first.start_date.strftime("%d"" ""%b"" ""%Y") %></b>
+    <% end %>
+  </p>
+  <div class="longfont">
+    <p>
+      <%= truncate(event.details, length: 150, separator: ' ', escape: false) %>
+    </p>
+  </div>
+  <p>
+    <%= link_to image_tag("buttons/Taikoz_LearnMore.png", width: '150'), event_path(event), alt: "Learn More" %>
+  </p>
+  <% end %>
+</div>

@@ -9,8 +9,13 @@ class Event < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   # default_scope -> { order(start_date: :asc)}
-  scope :current_events, -> { where(state: "current") }
-  scope :past_events,    -> { where(state: "past") }
+  # scope :current_events, -> { where(state: "current") }
+  # scope :past_events,    -> { where(state: "past") }
+  scope :current_events, -> { where(["end_date >= ?", Time.current.beginning_of_day]) }
+  scope :past_events,    -> { where(["end_date < ?", Time.current.beginning_of_day]) }
+
+  scope :draft,      -> { where(event_status: "Draft") }
+  scope :published,  -> { where(event_status: "Published") }
 
 
   extend FriendlyId
@@ -25,30 +30,32 @@ class Event < ActiveRecord::Base
   end
 
 
-  state_machine :state, initial: :current do
-    event :make_past do
-      transition current: :past
-    end
-  end
+  # state_machine :state, initial: :current do
+  #   event :make_past do
+  #     transition current: :past
+  #   end
+  # end
 
-  state_machine :event_status, initial: :draft do
+  state_machine :event_status, initial: :Draft do
     event :publish do
-      transition draft: :published
+      transition Draft: :Published
     end
   end
 
-  def self.change_event_state
-    events = current_events
-    events.where(["end_date < ?", Time.current]).each do |event|
-      event.make_past
-    end
+  def current?
+    end_date >= Time.current.beginning_of_day
   end
 
-  # def change_event_state
-  #     current_events
-  #     if event.end_date < DateTime.current
-  #       make_past
-  #     end
+  def past?
+    end_date < Time.current.beginning_of_day
+  end
+
+
+  # def self.change_event_state
+  #   events = current_events
+  #   events.where(["end_date < ?", Time.current]).each do |event|
+  #     event.make_past
+  #   end
   # end
 
 end

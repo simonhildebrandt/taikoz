@@ -4,6 +4,11 @@
 
 <%= form_for @event, :url => casein_event_path(@event) do |f| %>
 
+<p class="submits">
+	<%= link_to 'Cancel', casein_events_path, :class => 'btn btn-mini btn-danger' %>
+	<%= f.submit "Save changes", :class => "btn btn-mini btn-primary" %>
+</p>
+
 	<%= render :partial => 'casein/events/form', :locals => { :f => f } %>
 
 	<p class="submits">
