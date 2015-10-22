@@ -4,9 +4,11 @@
   </div>
   <div class="uk-visible-small">
     <a href="http:\\www.taikoz.com" class="uk-navbar-brand"><%= cl_image_tag("taikoz_logo_rough.png", width: 190) %></a>
+  </div>
   <div class="uk-navbar-flip uk-hidden-small uk-hidden-medium">
+    <div class="uk-navbar-content navbar-content-pad"><%= link_to "ABOUT", about_path %></div>
     <div class="uk-navbar-content navbar-content-pad"><%= link_to "NEWS", posts_path %></div>
-    <div class="uk-navbar-content navbar-content-pad"><%= link_to "EVENTS", events_path %></div>
+    <div class="uk-navbar-content navbar-content-pad"><%= link_to "WHAT'S ON", events_path %></div>
     <div class="uk-navbar-content navbar-content-pad"><a href="http:\\www.taikozeducation.com">CLASSES</a></div>
     <div class="uk-navbar-content navbar-content-pad"><a href="mailto:companymanager@taikoz.com">CONTACT</a></div>
     <div class="uk-navbar-content navbar-content-pad-sm"><a href="https://www.facebook.com/TAIKOZfan" class="uk-icon-hover uk-icon-facebook"></a></div>
@@ -22,7 +24,7 @@
     <ul class="uk-nav uk-nav-offcanvas">
       <li><%= link_to "ABOUT", about_path %></li>
       <li><%= link_to "NEWS", posts_path %></li>
-      <li><%= link_to "EVENTS", events_path %></li>
+      <li><%= link_to "WHAT'S ON", events_path %></li>
       <li><a href="http:\\www.taikozeducation.com">CLASSES</a></li>
       <li><a href="mailto:companymanager@taikoz.com">CONTACT</a></li>
       <li class="uk-nav-divider"></li>

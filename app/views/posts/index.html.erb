@@ -5,29 +5,25 @@
   <hr>
     <% @posts.each do |post| %>
       <div class="feed_padding">
-        <div class="uk-grid">
-          <div class="uk-width-medium-1-4">
-            <div class="uk-vertical-align">
-              <div class="uk-vertical-align-middle">
-                <%= link_to (cl_image_tag(post.image_1, width: 220)), post_path(post) %>
-              </div>
-            </div>
-          </div>
-          <div class="uk-width-medium-3-4">
           <h2>
             <%= link_to post.title, post_path(post), style: 'color: #404041' %>
           </h2>
+          <div class="uk-align-medium-right">
+            <%= link_to (cl_image_tag(post.image_1, width: 230, height: 129, crop: :fill)), post_path(post) %>
+          </div>
           <p>
-            <strong>Author: </strong><%= post.author %> | <strong>Date: </strong><%= post.published_at.strftime("%A"" ""%d"" ""%B"" ""%Y") if post.published_at? %>
+            <strong>Author: </strong><%= post.author %>
+          </p>
+          <p>
+            <strong>Date: </strong><%= post.published_at.strftime("%A"" ""%d"" ""%B"" ""%Y") if post.published_at? %>
           </p>
           <div class="longfont">
             <p>
               <%= truncate(post.content, length: 200, separator: " ", escape: false) %>
             </p>
           </div>
+
           <p><strong><%= link_to "Read more...", post_path(post) %></strong></p>
-          </div>
-        </div>
       </div>
       <hr>
     <% end %>

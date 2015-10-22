@@ -8,14 +8,18 @@
           </div>
         </figure>
       </div>
-      <div class="uk-visible-small" style="padding-top: 35px">
-        <h1>Upcoming Events</h1>
+      <div class="uk-visible-small">
+        <hr>
+          <h1>Subscribe</h1>
+          <p><a href="#subscribe-modal" data-uk-modal>CLICK HERE</a> to receive upcoming news and event information</p>
+        <hr>
+        <h1>What's On</h1>
       </div>
       <% @events.each do |event| %>
         <div class="sum_text_pad">
           <h2>
             <%= link_to event.name, event_path(event), style: 'color: #404041' %>
-           </h2>
+          </h2>
           <p>
             <% unless event.sessions.first.start_date == event.sessions.last.start_date%>
               <b><%= event.sessions.first.start_date.strftime("%d"" ""%b") %></b> to <b><%= event.sessions.last.start_date.strftime("%d"" ""%b"" ""%Y") %></b>
@@ -43,6 +47,7 @@
         </figure>
       </div>
       <div class="uk-visible-small" style="padding-top: 35px">
+<hr>
         <h1>Current News</h1>
       </div>
       <% @posts.each do |post| %>
@@ -71,11 +76,12 @@
         </figure>
       </div>
       <div class="uk-visible-small" style="padding-top: 35px">
-        <h1>Subscribe</h1>
+        <hr>
+        <h1>Follow Us</h1>
       </div>
-      <div class="sum_text_pad">
+      <div class="sum_text_pad uk-text-center">
         <!-- <h2 class="uk-hidden-small">SUBSCRIBE <small><a href="#subscribe-modal" data-uk-modal>Click Here</a></small></h2> -->
-          <div class="fb-page uk-text-center" data-href="https://www.facebook.com/TAIKOZfan" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-show-posts="true">
+          <div class="fb-page" data-href="https://www.facebook.com/TAIKOZfan" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-show-posts="true">
             <div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/TAIKOZfan"><a href="https://www.facebook.com/TAIKOZfan">Facebook</a></blockquote>
             </div>
           </div>
