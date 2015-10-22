@@ -15,10 +15,10 @@
           </div>
           <div class="uk-width-medium-3-4">
           <h2>
-            <%= link_to post.title, post_path(post) %>
+            <%= link_to post.title, post_path(post), style: 'color: #404041' %>
           </h2>
           <p>
-            <strong>Author: </strong><%= post.author %> | <strong>Date: </strong><%= post.created_at.strftime("%A"" ""%d"" ""%B"" ""%Y") %>
+            <strong>Author: </strong><%= post.author %> | <strong>Date: </strong><%= post.published_at.strftime("%A"" ""%d"" ""%B"" ""%Y") if post.published_at? %>
           </p>
           <div class="longfont">
             <p>

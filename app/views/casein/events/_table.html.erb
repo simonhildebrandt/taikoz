@@ -17,7 +17,7 @@
 
 	<% events.each do |event| %>
 		<tr>
-			<td><%= cl_image_tag(event.image, width: 70) %></td>
+			<td><div class="index_image_pad"><%= cl_image_tag(event.image, width: 70) %></div></td>
 			<td><strong><%= casein_table_cell_link event.name, casein_event_path(event) %></strong></td>
 			<td><%= casein_table_cell_link event.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y"), casein_event_path(event) if event.start_date.present? %></td>
 			<td><%= casein_table_cell_link event.end_date.strftime("%A"" ""%d"" ""%B"" ""%Y"), casein_event_path(event) if event.end_date.present? %></td>
@@ -29,9 +29,11 @@
 				<td><strong><%= casein_table_cell_link "Past", casein_event_path(event) %></strong></td>
 			<% end %>
 			<td>
-				<%= link_to event.event_status, casein_event_path(event), class: "label label-warning" if event.event_status == "Draft" %>
+				<div class="index_image_pad">
+					<%= link_to event.event_status, casein_event_path(event), class: "label label-warning" if event.event_status == "Draft" %>
 
-				<%= casein_table_cell_link event.event_status, casein_event_path(event), class: "label label-success" if event.event_status == "Published" %>
+					<%= casein_table_cell_link event.event_status, casein_event_path(event), class: "label label-success" if event.event_status == "Published" %>
+				</div>
 			</td>
 
 			<td class="delete">

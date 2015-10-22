@@ -1,5 +1,9 @@
 <nav class="uk-navbar">
-    <a href="http:\\www.taikoz.com" class="uk-navbar-brand"><img src="../images/taikoz_logo_rough.png" style="height:50px;"></a>
+  <div class="uk-hidden-small">
+    <a href="http:\\www.taikoz.com" class="uk-navbar-brand"><%= cl_image_tag("taikoz_logo_rough.png", width: 280) %></a>
+  </div>
+  <div class="uk-visible-small">
+    <a href="http:\\www.taikoz.com" class="uk-navbar-brand"><%= cl_image_tag("taikoz_logo_rough.png", width: 190) %></a>
   <div class="uk-navbar-flip uk-hidden-small uk-hidden-medium">
     <div class="uk-navbar-content navbar-content-pad"><%= link_to "NEWS", posts_path %></div>
     <div class="uk-navbar-content navbar-content-pad"><%= link_to "EVENTS", events_path %></div>
@@ -27,6 +31,7 @@
       <li><a href="https://www.youtube.com/user/SynergyandTaikOzLtd" class="uk-icon-hover uk-icon-youtube"></a></li>
       <li><a href="https://vimeo.com/taikoz" class="uk-icon-hover uk-icon-vimeo"></a></li>
       <li class="uk-nav-divider"></li>
+      <li><a href="#subscribe-modal" data-uk-modal>Subscribe</a></li>
       <li><a href="https://www.givenow.com.au/synergyandtaikoz">Donate</a></li>
       <li><%= link_to "Donors", donors_path %></li>
       <li><%= link_to "Privacy Policy", privacy_policy_path %></li>

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post.paginate(page: params[:page], per_page: 6).published
+    @posts = Post.order(published_at: :desc).paginate(page: params[:page], per_page: 6).published
     @events = Event.order(start_date: :asc).current_events.published.limit(2)
   end
 

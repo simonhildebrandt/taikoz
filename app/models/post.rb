@@ -8,6 +8,8 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  before_save :update_published_at
+
   # default_scope -> { order(created_at: :asc)}
 
   scope :draft,      -> { where(post_status: "Draft") }
@@ -16,6 +18,16 @@ class Post < ActiveRecord::Base
   state_machine :post_status, initial: :Draft do
     event :publish do
       transition Draft: :Published
+    end
+  end
+
+  def update_published_at
+    if post_status_changed?
+      if post_status == "Published"
+        self.published_at = Time.current
+      elsif post_status == "Draft"
+        self.published_at = nil
+      end
     end
   end
 
