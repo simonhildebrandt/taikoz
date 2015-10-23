@@ -1,14 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_events_sidebar
 
   def index
     @posts = Post.order(published_at: :desc).paginate(page: params[:page], per_page: 6).published
-    @events = Event.order(start_date: :asc).current_events.published.limit(2)
   end
 
   def show
-    @events = Event.order(start_date: :asc).current_events.published.limit(2)
+
   end
 
   private

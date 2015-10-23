@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151022024536) do
+ActiveRecord::Schema.define(version: 20151023033204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "booking_enquiries", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "organisation_name"
+    t.datetime "event_date"
+    t.datetime "event_time"
+    t.string   "event_location"
+    t.string   "event_type"
+    t.text     "performance_requirments"
+    t.integer  "expected_attendance"
+    t.string   "budget"
+    t.text     "access_details"
+    t.text     "parking_details"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "casein_admin_users", force: :cascade do |t|
     t.string   "login",                           null: false

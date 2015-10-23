@@ -76,4 +76,16 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.api.createsend.com',
+  port:                 587,
+  domain:               'taikoz.com',
+  user_name:            ENV["CAMPAIGN_MONITOR"],
+  password:             ENV["CAMPAIGN_MONITOR"],
+  authentication:       'plain',
+  enable_starttls_auto: true
+  }
 end

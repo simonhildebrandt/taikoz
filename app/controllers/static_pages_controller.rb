@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_action :sidebar
+  before_action :set_events_sidebar
 
   def privacy_policy
   end
@@ -8,12 +8,6 @@ class StaticPagesController < ApplicationController
   end
 
   def donors
-  end
-
-private
-
-  def sidebar
-    @events = Event.order(start_date: :asc).current_events.published.limit(2)
   end
 
 end

@@ -1,16 +1,16 @@
 <nav class="uk-navbar">
   <div class="uk-hidden-small">
-    <a href="http:\\www.taikoz.com" class="uk-navbar-brand"><%= cl_image_tag("taikoz_logo_rough.png", width: 280) %></a>
+    <a href="http://www.taikoz.com" class="uk-navbar-brand"><%= cl_image_tag("taikoz_logo_rough.png", width: 280) %></a>
   </div>
   <div class="uk-visible-small">
-    <a href="http:\\www.taikoz.com" class="uk-navbar-brand"><%= cl_image_tag("taikoz_logo_rough.png", width: 190) %></a>
+    <a href="http://www.taikoz.com" class="uk-navbar-brand"><%= cl_image_tag("taikoz_logo_rough.png", width: 190) %></a>
   </div>
   <div class="uk-navbar-flip uk-hidden-small uk-hidden-medium">
     <div class="uk-navbar-content navbar-content-pad"><%= link_to "ABOUT", about_path %></div>
     <div class="uk-navbar-content navbar-content-pad"><%= link_to "NEWS", posts_path %></div>
     <div class="uk-navbar-content navbar-content-pad"><%= link_to "WHAT'S ON", events_path %></div>
-    <div class="uk-navbar-content navbar-content-pad"><a href="http:\\www.taikozeducation.com">CLASSES</a></div>
-    <div class="uk-navbar-content navbar-content-pad"><a href="mailto:companymanager@taikoz.com">CONTACT</a></div>
+    <div class="uk-navbar-content navbar-content-pad"><a href="http://www.taikozeducation.com">CLASSES</a></div>
+    <div class="uk-navbar-content navbar-content-pad"><%= link_to "CONTACT", contact_path %></div>
     <div class="uk-navbar-content navbar-content-pad-sm"><a href="https://www.facebook.com/TAIKOZfan" class="uk-icon-hover uk-icon-facebook"></a></div>
     <div class="uk-navbar-content navbar-content-pad-sm"><a href="https://twitter.com/Taikoz" class="uk-icon-hover uk-icon-twitter"></a></div>
     <div class="uk-navbar-content navbar-content-pad-sm"><a href="https://www.youtube.com/user/SynergyandTaikOzLtd" class="uk-icon-hover uk-icon-youtube"></a></div>
@@ -25,8 +25,9 @@
       <li><%= link_to "ABOUT", about_path %></li>
       <li><%= link_to "NEWS", posts_path %></li>
       <li><%= link_to "WHAT'S ON", events_path %></li>
-      <li><a href="http:\\www.taikozeducation.com">CLASSES</a></li>
-      <li><a href="mailto:companymanager@taikoz.com">CONTACT</a></li>
+      <li><a href="http://www.taikozeducation.com">CLASSES</a></li>
+      <li><%= link_to "CONTACT", contact_path %></li>
+      <li><%= link_to "BOOKINGS", new_booking_enquiry_path %></li>
       <li class="uk-nav-divider"></li>
       <li><a href="https://www.facebook.com/TAIKOZfan" class="uk-icon-hover uk-icon-facebook"></a></li>
       <li><a href="https://twitter.com/Taikoz" class="uk-icon-hover uk-icon-twitter"></a></li>
