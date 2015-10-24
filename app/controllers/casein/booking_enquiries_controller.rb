@@ -2,21 +2,21 @@
 
 module Casein
   class BookingEnquiriesController < Casein::CaseinController
-  
+
     ## optional filters for defining usage according to Casein::AdminUser access_levels
     # before_filter :needs_admin, :except => [:action1, :action2]
     # before_filter :needs_admin_or_current_user, :only => [:action1, :action2]
-  
+
     def index
       @casein_page_title = 'Booking enquiries'
   		@booking_enquiries = BookingEnquiry.order(sort_order(:first_name)).paginate :page => params[:page]
     end
-  
+
     def show
       @casein_page_title = 'View booking enquiry'
       @booking_enquiry = BookingEnquiry.find params[:id]
     end
-  
+
     def new
       @casein_page_title = 'Add a new booking enquiry'
     	@booking_enquiry = BookingEnquiry.new
@@ -24,7 +24,7 @@ module Casein
 
     def create
       @booking_enquiry = BookingEnquiry.new booking_enquiry_params
-    
+
       if @booking_enquiry.save
         flash[:notice] = 'Booking enquiry created'
         redirect_to casein_booking_enquiries_path
@@ -33,12 +33,12 @@ module Casein
         render :action => :new
       end
     end
-  
+
     def update
       @casein_page_title = 'Update booking enquiry'
-      
+
       @booking_enquiry = BookingEnquiry.find params[:id]
-    
+
       if @booking_enquiry.update_attributes booking_enquiry_params
         flash[:notice] = 'Booking enquiry has been updated'
         redirect_to casein_booking_enquiries_path
@@ -47,7 +47,7 @@ module Casein
         render :action => :show
       end
     end
- 
+
     def destroy
       @booking_enquiry = BookingEnquiry.find params[:id]
 
@@ -55,9 +55,9 @@ module Casein
       flash[:notice] = 'Booking enquiry has been deleted'
       redirect_to casein_booking_enquiries_path
     end
-  
+
     private
-      
+
       def booking_enquiry_params
         params.require(:booking_enquiry).permit(:first_name, :last_name, :phone, :email, :organisation_name, :event_date, :event_time, :event_location, :event_type, :performance_requirments, :expected_attendance, :budget, :access_details, :parking_details)
       end
