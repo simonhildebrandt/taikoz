@@ -1,9 +1,9 @@
 <nav class="uk-navbar">
   <div class="uk-hidden-small">
-    <a href="http://www.taikoz.com" class="uk-navbar-brand"><%= cl_image_tag("taikoz_logo_rough.png", width: 280) %></a>
+    <div class="uk-navbar-brand"><%= link_to cl_image_tag("taikoz_logo_rough.png", width: 280), root_path %></div>
   </div>
   <div class="uk-visible-small">
-    <a href="http://www.taikoz.com" class="uk-navbar-brand"><%= cl_image_tag("taikoz_logo_rough.png", width: 190) %></a>
+    <div class="uk-navbar-brand"><%= link_to cl_image_tag("taikoz_logo_rough.png", width: 190), root_path %></div>
   </div>
   <div class="uk-navbar-flip uk-hidden-small uk-hidden-medium">
     <div class="uk-navbar-content navbar-content-pad"><%= link_to "ABOUT", about_path %></div>

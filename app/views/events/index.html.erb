@@ -1,31 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <div class="uk-grid">
-  <div class="uk-width-1-3">
-    <h1>Events</h1>
+  <div class="uk-width-1-1 uk-width-small-1-3">
+    <h1>What's On</h1>
   </div>
-  <div class="uk-width-2-3 uk-text-right" style="padding-top: 19px">
+  <div class="uk-hidden-small uk-width-2-3 uk-text-right" style="padding-top: 19px">
     <%= link_to "Current Events", events_path %>
     |
-    <%= link_to "Past Event Archive", events_path(filter: 'past') %>
+    <%= link_to "Past Events", events_path(filter: 'past') %>
+  </div>
+  <div class="uk-width-1-1 uk-visible-small" style="padding-top: 19px">
+    <%= link_to "Current Events", events_path %>
+    |
+    <%= link_to "Past Events", events_path(filter: 'past') %>
   </div>
 </div>
 <hr>
 
-    <% @events.each do |event| %>
-      <div class="feed_padding">
-        <div class="uk-grid">
-          <div class="uk-width-medium-1-4">
-            <div class="uk-vertical-align">
-              <div class="uk-vertical-align-middle">
-                <%= link_to (cl_image_tag(event.image, width: 220)), event_path(event) %>
-              </div>
-            </div>
-          </div>
-          <div class="uk-width-medium-3-4">
+  <% @events.each do |event| %>
+    <div class="feed_padding">
         <h2>
           <%= link_to event.name, event_path(event), style: 'color: #404041' %>
         </h2>
+        <div class="uk-align-medium-right">
+          <%= link_to (cl_image_tag(event.image, width: 230, height: 129, crop: :fill)), event_path(event) %>
+        </div>
         <p>
           <% unless event.sessions.first.start_date == event.sessions.last.start_date%>
             <b><%= event.sessions.first.start_date.strftime("%d"" ""%b") %></b> to <b><%= event.sessions.last.start_date.strftime("%d"" ""%b"" ""%Y") %></b>
@@ -38,16 +37,16 @@
             <%= truncate(event.details, length: 200, separator: " ", escape: false) %>
           </p>
         </div>
-        <p><strong><%= link_to "Read more...", event_path(event) %></strong></p>
-      </div>
-    </div>
-  </div>
-      <hr>
-    <% end %>
-  <div class="uk-pagination">
-    <p><%= will_paginate @events %></p>
-  </div>
 
+        <p><strong><%= link_to "Read more...", event_path(event) %></strong></p>
+
+    </div>
+    <hr>
+  <% end %>
+
+
+
+<p><%= will_paginate @events %></p>
 
 <p>
   <%= link_to image_tag("buttons/Taikoz_Back.png", width: '100'), root_path, alt: "Back" %>

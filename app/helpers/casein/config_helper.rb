@@ -14,7 +14,7 @@ module Casein
     # The server hostname where Casein will run
     def casein_config_hostname
       if Rails.env.production?
-        'http://www.caseincms.com'
+        'http://www.taikoz.com'
       else
         'http://0.0.0.0:3000'
       end
@@ -28,7 +28,8 @@ module Casein
     # The initial page the user is shown after they sign in or click the logo. Probably this should be set to the first tab.
     # Do not point this at casein/index!
     def casein_config_dashboard_url
-      url_for :controller => :casein, :action => :blank
+      # url_for :controller => :casein, :action => :blank
+      url_for casein_posts_path
     end
 
     # A list of stylesheets to include. Do not remove the core casein/casein, but you can change the load order, if required.

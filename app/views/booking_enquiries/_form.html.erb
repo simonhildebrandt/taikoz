@@ -12,24 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <%= f.label "First Name *" %><br>
+    <%= f.text_field :first_name, size: 60 %>
   </div>
   <div class="field">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, size: 60 %>
   </div>
   <div class="field">
     <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone, size: 60 %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.label "Email *" %><br>
+    <%= f.text_field :email, size: 60 %>
   </div>
   <div class="field">
-    <%= f.label :organisation_name %><br>
-    <%= f.text_field :organisation_name %>
+    <%= f.label "Organisation *" %><br>
+    <%= f.text_field :organisation_name, size: 60 %>
   </div>
   <div class="field">
     <%= f.label :event_date %><br>
@@ -41,33 +41,33 @@
   </div>
   <div class="field">
     <%= f.label :event_location %><br>
-    <%= f.text_field :event_location %>
+    <%= f.text_field :event_location, size: 60 %>
   </div>
   <div class="field">
     <%= f.label :event_type %><br>
-    <%= f.text_field :event_type %>
+    <%= f.text_field :event_type, size: 60 %>
   </div>
   <div class="field">
     <%= f.label :performance_requirments %><br>
-    <%= f.text_area :performance_requirments, cols: 50, rows: 5 %>
+    <%= f.text_area :performance_requirments, cols: 43, rows: 5 %>
   </div>
   <div class="field">
     <%= f.label :expected_attendance %><br>
-    <%= f.number_field :expected_attendance %>
+    <%= f.number_field :expected_attendance, size: 60 %>
   </div>
   <div class="field">
     <%= f.label :budget %><br>
-    <%= f.text_field :budget %>
+    <%= f.text_field :budget, size: 60 %>
   </div>
   <div class="field">
     <%= f.label :access_details %><br>
-    <%= f.text_area :access_details, cols: 50, rows: 5 %>
+    <%= f.text_area :access_details, cols: 43, rows: 5 %>
   </div>
   <div class="field">
     <%= f.label :parking_details %><br>
-    <%= f.text_area :parking_details, cols: 50, rows: 5 %>
+    <%= f.text_area :parking_details, cols: 43, rows: 5 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Send", class: 'uk-button uk-button-danger'  %>
   </div>
 <% end %>

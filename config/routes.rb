@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :booking_enquiries
+
   root 'home#index'
 
 	get 'privacy_policy', to: 'static_pages#privacy_policy'
@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   get 'donors', to: 'static_pages#donors'
   get 'contact', to: 'static_pages#contact'
 
-	resources :posts
-  resources :events
+	resources :posts, only: [:index, :show]
+  resources :events, only: [:index, :show]
+  resources :booking_enquiries, only: [:show, :new, :create]
 
 
 	#Casein routes

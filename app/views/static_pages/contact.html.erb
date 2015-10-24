@@ -1,43 +1,53 @@
-<div class="uk-grid">
-  <div class="uk-width-1-1 uk-width-medium-1-2">
-    <h1>Contact</h1>
-    <p>Synergy & Taikoz Ltd ABN 67 003 352 181</p>
-      <p>Office: 02 9663 5532</p>
-      <%= mail_to "admin@synergyandtaikoz.com" %>
-  </br>
-  </br>
-    <h2>Taikoz Staff</h2>
-
-    <p><span style="font-size: small;">Ian Cleworth</span></p>
-    <p>Email: ad@taikoz.com</p>
-    <p>&nbsp;</p>
-    <p><span style="font-size: small;"><strong>Business Director</strong></span></p>
-    <p><span style="font-size: small;">Lee McIver<br /></span></p>
-    <p>Email: lee@synergyandtaikoz.com</p>
-    <p>&nbsp;</p>
-    <p><strong><span style="font-size: small;">Marketing &amp; Communications Manager</span></strong></p>
-    <p><span style="font-size: small;">Kathy Kenyon</span></p>
-    <p>Email: kathy@synergyandtaikoz.com</p>
-    <p>&nbsp;</p>
-    <p><span style="font-size: small;"><strong>Administrator &amp; CFO</strong></span></p>
-    <p><span style="font-size: small;">Karen Steains</span></p>
-    <p>Email: karen@synergyandtaikoz.com</p>
-    <p>&nbsp;</p>
-    <p><span style="font-size: small;"><strong>Marketing &amp; Communications Co-ordinator</strong></span></p>
-    <p><span style="font-size: small;">Jessica Legey<br /></span></p>
-    <p>Email: jessica@synergyandtaikoz.com</p>
-    <p>&nbsp;</p>
-    <p><span style="font-size: small;"><strong>Company Manager</strong></span></p>
-    <p><span style="font-size: small;">Rob Cornish</span></p>
-    <p>Email: companymanager@taikoz.com</p>
-    <p>&nbsp;</p>
-    <p><span style="font-size: small;"><strong>Taikoz School Co-ordinator</strong></span></p>
-    <p><span style="font-size: small;">Kerryn Joyce</span></p>
-    <p>Email: classes@taikoz.com</p>
-  </div>
-  <div class="uk-grid-width-1-1 uk-width-medium-1-2">
+<div class="uk-grid" data-uk-grid-margin>
+  <div class="uk-width-1-1 uk-width-small-1-2">
     <h1>Bookings</h1>
     <h3><%= link_to "Submit a booking enquiry", new_booking_enquiry_path %></h3>
   </div>
 
+  <div class="uk-width-1-1 uk-width-small-1-2">
+    <h1>Administration</h1>
+    <h3>Synergy & Taikoz Ltd ABN 67 003 352 181</h3>
+      <p>Office: 02 9663 5532</p>
+      <p style="margin-top: -10px"><%= mail_to "admin@synergyandtaikoz.com" %></p>
+      <p style="margin-top: -10px">PO Box 829, Kensington, NSW 1465, Australia.</p>
+  </div>
+</div>
+
+</br>
+<div class="uk-block uk-block-muted">
+<h2>Taikoz Staff</h2>
+</br>
+  <div class="uk-grid">
+    <div class="uk-width-1-1 uk-width-small-1-2">
+      <h4>Ian Cleworth</h4>
+      <p style="margin-top: -10px"><%= mail_to "ad@taikoz.com" %></p>
+      <p>&nbsp;</p>
+      <h3>Business Director</h3>
+      <h4>Lee McIver</h4>
+      <p style="margin-top: -10px"><%= mail_to "lee@synergyandtaikoz.com" %></p>
+      <p>&nbsp;</p>
+      <h3>Marketing &amp; Communications Manager</h3>
+      <h4>Kathy Kenyon</h4>
+      <p style="margin-top: -10px"><%= mail_to "kathy@synergyandtaikoz.com" %></p>
+      <p>&nbsp;</p>
+      <h3>Administrator &amp; CFO</h3>
+      <h4>Karen Steains</h4>
+      <p style="margin-top: -10px"><%= mail_to "karen@synergyandtaikoz.com" %></p>
+      <p>&nbsp;</p>
+    </div>
+    <div class="uk-width-1-1 uk-width-small-1-2">
+      <h3>Marketing &amp; Communications Co-ordinator</h3>
+      <h4>Jessica Legey</h4>
+      <p style="margin-top: -10px"><%= mail_to "jessica@synergyandtaikoz.com" %></p>
+      <p>&nbsp;</p>
+      <h3>Company Manager</h3>
+      <h4>Rob Cornish</h4>
+      <p style="margin-top: -10px"><%= mail_to "companymanager@taikoz.com" %></p>
+      <p>&nbsp;</p>
+      <h3>Taikoz School Co-ordinator</h3>
+      <h4>Kerryn Joyce</h4>
+      <p style="margin-top: -10px"><%= mail_to "classes@taikoz.com" %></p>
+
+    </div>
+  </div>
 </div>
