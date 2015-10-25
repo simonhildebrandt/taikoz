@@ -125,3 +125,20 @@ footer {
  .pagination-right {
    text-align: right;
  }
+
+ .scrollable-text {
+   height: 300px;
+   overflow-y: scroll;
+   -webkit-overflow-scrolling: touch;
+   /*resize: both;*/
+ }
+ .scrollable-box {
+   box-sizing: border-box;
+   height: 170px;
+   padding: 10px;
+   /*border: 1px solid #dddddd;*/
+   overflow: auto;
+   -webkit-overflow-scrolling: touch;
+   /*resize: both;*/
+   /*border-radius: 3px;*/
+ }

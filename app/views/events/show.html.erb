@@ -1,26 +1,19 @@
 <p id="notice"><%= notice %></p>
-
-<div class="uk-grid">
-  <div class="uk-grid-1-2">
+  <h1>
+    <%= @event.name %>
+  </h1>
+  <div class="uk-align-medium-right">
     <%= cl_image_tag (@event.image), width: 400 %>
   </div>
-  <div class="uk-grid-2-2">
-    <h1>
-      <%= @event.name %>
-    </h1>
-    <p>
-      <% @sessions.each do |session| %>
-        <li>
-          <b><%= session.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y") %></b>
-          <%= session.venue %>
-          <%= session.city %>
-          <%= session.state %>
-        </li>
-      <% end %>
-    </p>
-  </div>
-</div>
-<div class="sum_text_pad longfont">
+  <h3>
+    <% unless @event.start_date == @event.end_date %>
+      <b><%= @event.start_date.strftime("%d"" ""%b") %></b> to <b><%= @event.end_date.strftime("%d"" ""%b"" ""%Y") %></b>
+    <% else %>
+      <b><%= @event.start_date.strftime("%d"" ""%b"" ""%Y") %></b>
+    <% end %>
+  </h3>
+<hr>
+<div class="longfont">
   <%= sanitize(@event.details) %>
 </div>
 

@@ -21,10 +21,10 @@
             <%= link_to event.name, event_path(event), style: 'color: #404041' %>
           </h2>
           <p>
-            <% unless event.sessions.first.start_date == event.sessions.last.start_date%>
-              <b><%= event.sessions.first.start_date.strftime("%d"" ""%b") %></b> to <b><%= event.sessions.last.start_date.strftime("%d"" ""%b"" ""%Y") %></b>
+            <% unless event.start_date == event.end_date%>
+              <b><%= event.start_date.strftime("%d"" ""%b") %></b> to <b><%= event.end_date.strftime("%d"" ""%b"" ""%Y") %></b>
             <% else %>
-              <b><%= event.sessions.first.start_date.strftime("%d"" ""%b"" ""%Y") %></b>
+              <b><%= event.start_date.strftime("%d"" ""%b"" ""%Y") %></b>
             <% end %>
           </p>
           <div class="longfont">
