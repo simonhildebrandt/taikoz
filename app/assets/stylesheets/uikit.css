@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'GT-Pressura-Mono-Regular';
-    src: url('/assets/GT-Pressura-Mono-Regular.eot');
-    src: url('/assets/GT-Pressura-Mono-Regular.eot?iefix') format('eot'),
-         url('/assets/GT-Pressura-Mono-Regular.woff') format('woff'),
-         url('/assets/GT-Pressura-Mono-Regular.ttf') format('truetype'),
-         url('/assets/GT-Pressura-Mono-Regular.svg#webfont') format('svg');
+    src: url(/assets/GT-Pressura-Mono-Regular.eot);
+    src: url(/assets/GT-Pressura-Mono-Regular.eot?iefix) format('eot'),
+         url(/assets/GT-Pressura-Mono-Regular.woff) format('woff'),
+         url(/assets/GT-Pressura-Mono-Regular.ttf) format('truetype'),
+         url(/assets/GT-Pressura-Mono-Regular.svg#webfont) format('svg');
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   background: #ffffff;
