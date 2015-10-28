@@ -1,6 +1,10 @@
 require 'rails_helper'
 
+
 RSpec.describe Session, type: :model do
+
+  it { is_expected.to have_attribute :venue }
+
   it "copies start date to the end date if end date not present" do
     session = Session.new(start_date: DateTime.new(2000, 1, 1), venue: "Riverside")
     event = Event.create!(sessions: [ session ], name: "Gig")
