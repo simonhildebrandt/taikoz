@@ -10,12 +10,11 @@
 			<th><%= casein_sort_link "Tech spec link", :tech_spec_link %></th>
 			<th><%= casein_sort_link "Media pack link", :media_pack_link %></th>
 			<th><%= casein_sort_link "Catagory", :catagory %></th>
-			<th><%= casein_sort_link "Slug", :slug %></th>
 			<th><%= casein_sort_link "Images", :images %></th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
-	
+
 	<% productions.each do |production| %>
 		<tr>
 			<td><%= casein_table_cell_link production.name, casein_production_path(production) %></td>
@@ -25,8 +24,7 @@
 			<td><%= casein_table_cell_link production.tech_spec_link, casein_production_path(production) %></td>
 			<td><%= casein_table_cell_link production.media_pack_link, casein_production_path(production) %></td>
 			<td><%= casein_table_cell_link production.catagory, casein_production_path(production) %></td>
-			<td><%= casein_table_cell_link production.slug, casein_production_path(production) %></td>
-			<td><%= casein_table_cell_link production.images, casein_production_path(production) %></td>
+			<td><%= casein_table_cell_link production.images.count, casein_production_path(production) %></td>
 			<td class="delete">
 				<%= link_to(casein_show_row_icon("trash"), casein_production_path(production), :method => :delete, :data => { :confirm => "Are you sure you want to delete this production?" }) %>
 			</td>

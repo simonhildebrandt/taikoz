@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029005524) do
+ActiveRecord::Schema.define(version: 20151029050736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -370,7 +370,6 @@ ActiveRecord::Schema.define(version: 20151029005524) do
     t.string   "media_pack_link"
     t.string   "catagory"
     t.string   "slug"
-    t.string   "images"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

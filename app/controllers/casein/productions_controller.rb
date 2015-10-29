@@ -2,21 +2,21 @@
 
 module Casein
   class ProductionsController < Casein::CaseinController
-  
+
     ## optional filters for defining usage according to Casein::AdminUser access_levels
     # before_filter :needs_admin, :except => [:action1, :action2]
     # before_filter :needs_admin_or_current_user, :only => [:action1, :action2]
-  
+
     def index
       @casein_page_title = 'Productions'
   		@productions = Production.order(sort_order(:name)).paginate :page => params[:page]
     end
-  
+
     def show
       @casein_page_title = 'View production'
-      @production = Production.find params[:id]
+      @production = Production.friendly.find params[:id]
     end
-  
+
     def new
       @casein_page_title = 'Add a new production'
     	@production = Production.new
@@ -24,8 +24,9 @@ module Casein
 
     def create
       @production = Production.new production_params
-    
+
       if @production.save
+        store_images(params[:production][:images])
         flash[:notice] = 'Production created'
         redirect_to casein_productions_path
       else
@@ -33,13 +34,15 @@ module Casein
         render :action => :new
       end
     end
-  
+
     def update
       @casein_page_title = 'Update production'
-      
-      @production = Production.find params[:id]
-    
+
+      @production = Production.friendly.find params[:id]
+
       if @production.update_attributes production_params
+        delete_images
+        store_images(params[:production][:images])
         flash[:notice] = 'Production has been updated'
         redirect_to casein_productions_path
       else
@@ -47,20 +50,29 @@ module Casein
         render :action => :show
       end
     end
- 
+
     def destroy
-      @production = Production.find params[:id]
+      @production = Production.friendly.find params[:id]
 
       @production.destroy
       flash[:notice] = 'Production has been deleted'
       redirect_to casein_productions_path
     end
-  
+
     private
-      
+
       def production_params
-        params.require(:production).permit(:name, :synopsis, :tech_summary, :video_link, :tech_spec_link, :media_pack_link, :catagory, :slug, :images)
+        params.require(:production).permit(:name, :synopsis, :tech_summary, :video_link, :tech_spec_link, :media_pack_link, :catagory, :slug)
       end
 
+      def store_images(images)
+        images.each{|image| @production.images.create(image: image)} if images
+      end
+
+      def delete_images
+        @production.images.each do |image|
+          image.destroy if params[image.id.to_s] =='delete'
+        end
+      end
   end
 end

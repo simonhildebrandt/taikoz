@@ -8,6 +8,8 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  validates :name, presence: :true
+
   before_save :update_published_at
 
   # default_scope -> { order(created_at: :asc)}
