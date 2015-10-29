@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  get 'productions/index'
+
+  get 'productions/show'
+
   root 'home#index'
 
 	get 'privacy_policy', to: 'static_pages#privacy_policy'
@@ -15,6 +19,7 @@ Rails.application.routes.draw do
 
 	#Casein routes
 	namespace :casein do
+		resources :productions
 		resources :booking_enquiries
 		resources :events
 		resources :posts

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023033204) do
+ActiveRecord::Schema.define(version: 20151029005524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -320,6 +320,15 @@ ActiveRecord::Schema.define(version: 20151023033204) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
+  create_table "images", force: :cascade do |t|
+    t.string   "image"
+    t.integer  "production_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "images", ["production_id"], name: "index_images_on_production_id", using: :btree
+
   create_table "locations", force: :cascade do |t|
     t.string   "venue"
     t.string   "street_add"
@@ -352,6 +361,20 @@ ActiveRecord::Schema.define(version: 20151023033204) do
 
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
 
+  create_table "productions", force: :cascade do |t|
+    t.string   "name"
+    t.text     "synopsis"
+    t.text     "tech_summary"
+    t.string   "video_link"
+    t.string   "tech_spec_link"
+    t.string   "media_pack_link"
+    t.string   "catagory"
+    t.string   "slug"
+    t.string   "images"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
@@ -372,6 +395,7 @@ ActiveRecord::Schema.define(version: 20151023033204) do
 
   add_index "sessions", ["event_id"], name: "index_sessions_on_event_id", using: :btree
 
+  add_foreign_key "images", "productions"
   add_foreign_key "locations", "sessions"
   add_foreign_key "sessions", "events"
 end
