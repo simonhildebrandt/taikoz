@@ -6,7 +6,7 @@
 		<%= casein_text_field f, f.object, :name %>
 	</div>
 	<div class="col-lg-4">
-		<%= casein_select f, f.object, :catagory, ["Mainstage", "Corporate", "School Show"], casein_sublabel: "Type of production" %>
+		<%= casein_select f, f.object, :catagory, Production.catagories.keys, casein_sublabel: "Type of production" %>
 
 	</div>
 </div>

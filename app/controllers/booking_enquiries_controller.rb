@@ -32,8 +32,9 @@ class BookingEnquiriesController < ApplicationController
 
     respond_to do |format|
       if @booking_enquiry.save
-        BookingMailer.booking_response(@booking_enquiry.id).deliver_now
-        BookingMailer.booking_notification(@booking_enquiry.id).deliver_now
+        BookingMailer.delay.booking_response(@booking_enquiry.id)
+        BookingMailer.delay.booking_notification(@booking_enquiry.id)
+        BookingMailer.delay.booking_to_trello(@booking_enquiry.id)
         format.html { redirect_to @booking_enquiry, notice: 'Booking enquiry was successfully created.' }
         format.json { render :show, status: :created, location: @booking_enquiry }
       else

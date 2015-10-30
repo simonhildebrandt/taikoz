@@ -1,2 +1,13 @@
-<h1>Productions#index</h1>
-<p>Find me in app/views/productions/index.html.erb</p>
+<h1>Productions</h1>
+
+<div class="uk-grid">
+  <% @productions.each do |production| %>
+    <div class="uk-width-1-1 uk-width-medium-1-3">
+      <div class="uk-panel uk-panel-hover">
+
+        <h2><%= link_to production.name, production_path(production) %></h2>
+        <p><%= truncate(production.synopsis, length: 250, separator: ' ', escape: false) %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

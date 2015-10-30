@@ -1,2 +1,22 @@
-<h1>Productions#show</h1>
-<p>Find me in app/views/productions/show.html.erb</p>
+<div class="uk-responsive-width">
+  <%= @production.video_link.html_safe %>
+</div>
+<h1><%= @production.name %></h1>
+<h3><%= @production.catagory %></h3>
+<div class="longfont">
+  <p><%= sanitize(@production.synopsis) %></p>
+</div>
+<p>IMAGES</p>
+<div class="uk-accordion" data-uk-accordion="{showfirst: false}">
+  <h3 class="uk-accordion-title">Click for Tech Specs</h3>
+  <div class="uk-accordion-content">
+    <div class="uk-align-medium-right">
+      <h3>
+        <%= link_to "Download Tech Specs", @production.tech_spec_link if @production.tech_spec_link? %>
+      </h3>
+    </div>
+    <div class="longfont">
+      <%= sanitize(@production.tech_summary) %>
+    </div>
+  </div>
+</div>

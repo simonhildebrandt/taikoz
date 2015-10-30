@@ -25,5 +25,7 @@ module Taikoz
 
     # config.asset.paths << Rails.root.join("app", "assets", "fonts")
 
+    config.active_job.queue_adapter = :delayed_job
+
   end
 end

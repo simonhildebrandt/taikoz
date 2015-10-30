@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-
-  get 'productions/index'
-
-  get 'productions/show'
-
   root 'home#index'
 
 	get 'privacy_policy', to: 'static_pages#privacy_policy'
@@ -15,6 +10,7 @@ Rails.application.routes.draw do
 	resources :posts, only: [:index, :show]
   resources :events, only: [:index, :show]
   resources :booking_enquiries, only: [:show, :new, :create]
+  resources :productions, only: [:index, :show]
 
 
 	#Casein routes

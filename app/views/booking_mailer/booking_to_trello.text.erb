@@ -1,0 +1,17 @@
+Name: <%= @booking.first_name %> <%= @booking.last_name %>
+Phone: <%= @booking.phone %>
+Email: <%= @booking.email %>
+Organisation: <%= @booking.organisation_name %>
+
+Event Date: <%= @booking.event_date.strftime("%Y""/""%m""/""%d") %>
+Event Time: <%= @booking.event_time.strftime("%H"":""%M") %>
+Event Type:<%= @booking.event_type %>
+Location: <%= @booking.event_location %>
+Budget: <%= @booking.budget %>
+Reuirements: <%= @booking.performance_requirments %>
+Event Attendace: <%= @booking.expected_attendance %>
+
+Details:
+<%= @booking.access_details %>
+
+<%= @booking.parking_details %>

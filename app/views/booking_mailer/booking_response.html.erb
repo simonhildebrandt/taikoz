@@ -1,7 +1,26 @@
 <h1>
-  Thank you for your enquiry
+  Thank you for your enquiry <%= @booking.first_name %>!
 </h1>
 <p>
-  We will respond to your request soon.
+  We will respond soon.
 </p>
-<p>Please visit <a href="http://www.taikoz.com">www.taikoz.com </a> for news and what's on information.</p>
+<hr>
+<h2>Details</h2>
+<p><b><%= @booking.first_name %> <%= @booking.last_name %></b></p>
+<p><b>Phone: </b><%= @booking.phone %></p>
+<p><b>Email: </b><%= @booking.email %></p>
+<p><b>Organisation: </b><%= @booking.organisation_name %></p>
+<hr>
+<p><b>Event Date: </b><%= @booking.event_date.strftime("%Y""/""%m""/""%d") %></p>
+<p><b>Event Time: </b><%= @booking.event_time.strftime("%H"":""%M") %></p>
+<p><b>Event Type: </b><%= @booking.event_type %></p>
+<p><b>Location: </b><%= @booking.event_location %></p>
+<p><b>Budget: </b><%= @booking.budget %></p>
+<p><b>Requirements: </b><%= @booking.performance_requirments %></p>
+<p><b>Expected Attendance: </b><%= @booking.expected_attendance %></p>
+<hr>
+<p><b>Details: </b></p>
+<p><%= @booking.access_details %></p>
+<p><%= @booking.parking_details %></p>
+<hr>
+<p><a href="http://www.taikoz.com">Click HERE www.taikoz.com </a> for the latest news and Taikoz information.</p>
