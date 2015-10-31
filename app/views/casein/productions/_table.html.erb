@@ -17,10 +17,10 @@
 
 	<% productions.each do |production| %>
 		<tr>
-			<td><%= casein_table_cell_link production.name, casein_production_path(production) %></td>
-			<td><%= casein_table_cell_link truncate(production.synopsis, length: 100, separator: ' ', escape: false), casein_production_path(production) %></td>
-			<td><%= casein_table_cell_link truncate(production.tech_summary, length: 100, separator: ' ', escape: false), casein_production_path(production) %></td>
-			<td><%= casein_table_cell_link production.video_link, casein_production_path(production) %></td>
+			<td><b><%= casein_table_cell_link production.name, casein_production_path(production) %></b></td>
+			<td><%= casein_table_cell_link truncate(production.synopsis, length: 50, separator: ' ', escape: false), casein_production_path(production) %></td>
+			<td><%= casein_table_cell_link truncate(production.tech_summary, length: 50, separator: ' ', escape: false), casein_production_path(production) %></td>
+			<td><%= casein_table_cell_link production.video_link?, casein_production_path(production) %></td>
 			<td><%= casein_table_cell_link production.tech_spec_link, casein_production_path(production) %></td>
 			<td><%= casein_table_cell_link production.media_pack_link, casein_production_path(production) %></td>
 			<td><%= casein_table_cell_link production.catagory, casein_production_path(production) %></td>

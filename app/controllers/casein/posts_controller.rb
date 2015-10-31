@@ -26,6 +26,7 @@ module Casein
       @post = Post.new post_params
 
       if @post.save
+        store_images(params[:post][:images])
         flash[:notice] = 'Post created'
         redirect_to casein_posts_path
       else
@@ -40,6 +41,8 @@ module Casein
       @post = Post.friendly.find params[:id]
 
       if @post.update_attributes post_params
+        delete_images
+        store_images(params[:post][:images])
         flash[:notice] = 'Post has been updated'
         redirect_to casein_posts_path
       else
@@ -59,7 +62,17 @@ module Casein
     private
 
       def post_params
-        params.require(:post).permit(:title, :author, :content, :post_status, :published_at, :image_1, :image_2, :image_3, :image_4, :image_5, :remove_image_1, :remove_image_2, :remove_image_3, :remove_image_4, :remove_image_5)
+        params.require(:post).permit(:title, :images, :author, :content, :post_status, :published_at, :image_1)
+      end
+
+      def store_images(images)
+        images.each{|image| @post.images.create(image: image)} if images
+      end
+
+      def delete_images
+        @post.images.each do |image|
+          image.destroy if params[image.id.to_s] =='delete'
+        end
       end
   end
 end

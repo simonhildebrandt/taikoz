@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  has_many :images, dependent: :destroy
+
   mount_uploader :image_1, ImageUploader
   mount_uploader :image_2, ImageUploader
   mount_uploader :image_3, ImageUploader
@@ -8,7 +10,7 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  validates :name, presence: :true
+  validates :title, presence: :true
 
   before_save :update_published_at
 

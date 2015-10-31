@@ -27,7 +27,21 @@
 					</label>
 				</p>
 			<% end %>
-			<%= casein_file_field f, f.object, "Image2", :image_2 %>
+
+			<p><b>Images</b></p>
+			<div class="field">
+			<p>
+				<%= f.cl_image_upload :images, multiple: true %>
+			</p>
+		</div>
+			<div id="progress_bar_box">
+				<div id="progress_bar"></div>
+				<div id="progress_percents"></div>
+			</div>
+			<div id="preview_images"></div>
+
+
+			<!-- <%= casein_file_field f, f.object, "Image2", :image_2 %>
 			<% if @post.image_2? %>
 				<p>
 					<label>
@@ -62,10 +76,27 @@
 						Remove Image
 					</label>
 				</p>
-			<% end %>
+			<% end %> -->
 		</div>
 		<div class="col-md-8">
-			<%# unless @post.image_1 == nil %>
+			<% if @post.images.any? %>
+				<b>Select images to delete </b>
+				<p>
+					<%= check_box_tag "select_all" %> Select all
+				</p>
+			</br>
+			<div class="row">
+				<% @post.images.each do |image| %>
+				<div class="col-sm-3">
+					<%= check_box_tag image.id, "delete" %>
+					<%= cl_image_tag(image.image.url, width: 170) %>
+				</br>
+				</div>
+				<% end %>
+			</div>
+			<% end %>
+
+			<!-- <%# unless @post.image_1 == nil %>
 				<p>Hero Image</p>
 				<%= cl_image_tag(@post.image_1, width: 400) %>
 			<%# end %>
@@ -80,6 +111,38 @@
 			<%# end %>
 			<%# unless @post.image_5 == nil %>
 				<%= cl_image_tag(@post.image_5, width: 200) %>
-			<%# end %>
+			<%# end %> -->
 		</div>
 </div>
+
+<!--Scripts-->
+<script type="text/javascript">
+//select all checkboxes
+  $(document).ready(function() {
+    $('#select_all').click(function(event) {  //on click
+      if(this.checked) { // check select status
+        $('form input:checkbox').each(function() { //loop through each checkbox
+          this.checked = true;  //select all checkboxes with class "checkbox1"
+        });
+      }else{
+        $('form input:checkbox').each(function() { //loop through each checkbox
+          this.checked = false; //deselect all checkboxes with class "checkbox1"
+        });
+      }
+    });
+		//cloudinary
+    $('.cloudinary-fileupload').cloudinary_fileupload().on('cloudinarydone', function(e, data){
+      $('#preview_images').append($.cloudinary.image(data.result.public_id, {width: 100, height: 100, crop: "fill"}));
+    })
+    .on('cloudinaryprogressall', function(e, data){
+      $('#progress_bar_box').show();
+      var percents = Math.round((data.loaded * 100.0) / data.total) + '%'
+      $('#progress_percents').text(percents)
+      $('#progress_bar').css('width', percents);
+    })
+    .on('fileuploadstop', function(){
+      $('#progress_bar_box').hide(fadeOut);
+    });
+  });
+
+</script>
