@@ -62,7 +62,7 @@ module Casein
     private
 
       def post_params
-        params.require(:post).permit(:title, :images, :author, :content, :post_status, :published_at, :image_1)
+        params.require(:post).permit(:title, :images, :author, :content, :post_status, :published_at, :image_1, :remove_image_1)
       end
 
       def store_images(images)
@@ -74,5 +74,6 @@ module Casein
           image.destroy if params[image.id.to_s] =='delete'
         end
       end
+
   end
 end

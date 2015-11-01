@@ -5,12 +5,14 @@ development:
   api_secret: k6pNDQjSzYA5_5vtSetgGoSDkVY
   enhance_image_tag: true
   static_image_support: false
+  cdn_subdomain: true
 production:
   cloud_name: taikoz
   api_key: '156512866329266'
   api_secret: k6pNDQjSzYA5_5vtSetgGoSDkVY
   enhance_image_tag: true
   static_image_support: true
+  cdn_subdomain: true
 test:
   cloud_name: taikoz
   api_key: '156512866329266'

@@ -2,7 +2,7 @@
 
 <div class="uk-grid">
   <div class="uk-width-1-1 uk-width-medium-1-2">
-    <%= cl_image_tag(@post.image_1) %>
+    <a href="<%= @post.image_1.url %>" data-uk-lightbox="{group:'post_images'}"><%= (cl_image_tag @post.image_1) %></a>
   </div>
   <div class="uk-width-1-1 uk-width-medium-1-2">
     <h1>
@@ -19,33 +19,23 @@
 <div class="sum_text_pad longfont">
   <%= sanitize(@post.content) %>
 </div>
-<div class="uk-text-center main_blocks">
-  <ul class="uk-grid uk-grid-width-small-1-1 uk-grid-width-medium-1-3 uk-grid-width-large-1-5" data-uk-grid-margin>
-    <li>
-      <a href="<%= @post.image_1.url %>" data-uk-lightbox="{group:'post_images'}" class="article_img_pad"><%= (cl_image_tag @post.image_1) %></a>
-    </li>
-    <li>
-      <% unless @post.image_2.url == nil %>
-        <a href="<%= @post.image_2.url %>" data-uk-lightbox="{group:'post_images'}" class="article_img_pad"><%= (cl_image_tag @post.image_2) %></a>
+</br>
+<div data-uk-slideset="{small: 2, medium: 4, large: 4}">
+  <div class="uk-slidenav-position">
+    <ul class="uk-grid uk-slideset">
+      <% @post.images.each do |image| %>
+        <li>
+          <a href="<%= image.image.url %>" data-uk-lightbox="{group:'post_images'}"><%= cl_image_tag(image.image, width: 230, height: 129, crop: :fill) %></a>
+        </li>
       <% end %>
-    </li>
-    <li>
-      <% unless @post.image_3.url == nil %>
-        <a href="<%= @post.image_3.url %>" data-uk-lightbox="{group:'post_images'}" class="article_img_pad"><%= (cl_image_tag @post.image_3) %></a>
-      <% end %>
-    </li>
-    <li>
-      <% unless @post.image_4.url == nil %>
-        <a href="<%= @post.image_4.url %>" data-uk-lightbox="{group:'post_images'}" class="article_img_pad"><%= (cl_image_tag @post.image_4) %></a>
-      <% end %>
-    </li>
-    <li>
-      <% unless @post.image_5.url == nil %>
-        <a href="<%= @post.image_5.url %>" data-uk-lightbox="{group:'post_images'}" class="article_img_pad"><%= (cl_image_tag @post.image_5) %></a>
-      <% end %>
-    </li>
-  </ul>
+    </ul>
+      <a href="" class="uk-slidenav uk-slidenav-previous" data-uk-slideset-item="previous"></a>
+      <a href="" class="uk-slidenav uk-slidenav-next" data-uk-slideset-item="next"></a>
+  </div>
+  <ul class="uk-slideset-nav uk-dotnav uk-flex-center" style="padding-top: 15px">...</ul>
 </div>
+</br>
+
 <p>
   <%= link_to image_tag("buttons/Taikoz_Back.png", width: '100'), posts_path, alt: "Back" %>
 </p>

@@ -18,17 +18,22 @@
 </div>
 <div class="row">
 	<div class="col-md-4">
-			<%= casein_file_field f, f.object, "Hero Image", :image_1, casein_label: "Hero Image" %>
+		<label>
+			Upload Hero Image
+		</label>
+			<%# f.file_field :image_1 %>
+			<%= f.cl_image_upload :image_1, tags: "post_hero_image" %>
 			<% if @post.image_1? %>
 				<p>
 					<label>
 						<%= f.check_box :remove_image_1 %>
 						Remove Image
 					</label>
+					<%= cl_image_tag(@post.image_1.url, width: 170) %>
 				</p>
 			<% end %>
-
-			<p><b>Images</b></p>
+</br>
+			<p><b>Upload Gallery Images</b></p>
 			<div class="field">
 			<p>
 				<%= f.cl_image_upload :images, multiple: true %>
@@ -40,43 +45,6 @@
 			</div>
 			<div id="preview_images"></div>
 
-
-			<!-- <%= casein_file_field f, f.object, "Image2", :image_2 %>
-			<% if @post.image_2? %>
-				<p>
-					<label>
-						<%= f.check_box :remove_image_2 %>
-						Remove Image
-					</label>
-				</p>
-			<% end %>
-			<%= casein_file_field f, f.object, "Image3", :image_3 %>
-			<% if @post.image_3? %>
-				<p>
-					<label>
-						<%= f.check_box :remove_image_3 %>
-						Remove Image
-					</label>
-				</p>
-			<% end %>
-			<%= casein_file_field f, f.object, "Image4", :image_4 %>
-			<% if @post.image_4? %>
-				<p>
-					<label>
-						<%= f.check_box :remove_image_4 %>
-						Remove Image
-					</label>
-				</p>
-			<% end %>
-			<%= casein_file_field f, f.object, "Image5", :image_5 %>
-			<% if @post.image_5? %>
-				<p>
-					<label>
-						<%= f.check_box :remove_image_5 %>
-						Remove Image
-					</label>
-				</p>
-			<% end %> -->
 		</div>
 		<div class="col-md-8">
 			<% if @post.images.any? %>
@@ -85,7 +53,7 @@
 					<%= check_box_tag "select_all" %> Select all
 				</p>
 			</br>
-			<div class="row">
+
 				<% @post.images.each do |image| %>
 				<div class="col-sm-3">
 					<%= check_box_tag image.id, "delete" %>
@@ -93,25 +61,9 @@
 				</br>
 				</div>
 				<% end %>
-			</div>
-			<% end %>
 
-			<!-- <%# unless @post.image_1 == nil %>
-				<p>Hero Image</p>
-				<%= cl_image_tag(@post.image_1, width: 400) %>
-			<%# end %>
-			<%# unless @post.image_2 == nil %>
-				<%= cl_image_tag(@post.image_2, width: 200) %>
-			<%# end %>
-			<%# unless @post.image_3 == nil %>
-				<%= cl_image_tag(@post.image_3, width: 200) %>
-			<%# end %>
-			<%# unless @post.image_4 == nil %>
-				<%= cl_image_tag(@post.image_4, width: 200) %>
-			<%# end %>
-			<%# unless @post.image_5 == nil %>
-				<%= cl_image_tag(@post.image_5, width: 200) %>
-			<%# end %> -->
+
+			<% end %>
 		</div>
 </div>
 

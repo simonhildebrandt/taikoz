@@ -16,7 +16,7 @@
 
 	<% posts.each do |post| %>
 		<tr>
-			<td><div class="index_image_pad"><%= cl_image_tag(post.image_1, width: 70) %></div></td>
+			<td><div class="index_image_pad"><%= cl_image_tag post.image_1, width: 70 %></div></td>
 			<td><%= casein_table_cell_link post.created_at.strftime("%A"" ""%d"" ""%B"" ""%Y"), casein_post_path(post) %></td>
 			<td><strong><%= casein_table_cell_link post.title, casein_post_path(post) %></stong></td>
 			<td><%= casein_table_cell_link post.author, casein_post_path(post) %></td>
