@@ -1,12 +1,16 @@
-<h1>Productions</h1>
-
-<div class="uk-grid">
+<h1>Productions/Performances</h1>
+</br>
+<div class="uk-grid uk-grid-match" data-uk-grid-match="{target:'.uk-panel'}" data-uk-grid-margin>
   <% @productions.each do |production| %>
     <div class="uk-width-1-1 uk-width-medium-1-3">
-      <div class="uk-panel uk-panel-hover">
-
-        <h2><%= link_to production.name, production_path(production) %></h2>
-        <p><%= truncate(production.synopsis, length: 250, separator: ' ', escape: false) %></p>
+      <div class="uk-panel uk-panel-box uk-panel-hover uk-panel-divider">
+        <div class="uk-panel-teaser">
+          <% production.images.first(1).each do |first_image| %>
+          <%= link_to cl_image_tag(first_image.image, width: 270, height: 152, crop: :fill), production_path(production) %>
+          <% end %>
+        </div>
+        <h2><b><%= link_to production.name, production_path(production), style: 'color: #404041' %></b></h2>
+        <div class="longfont"><%= link_to truncate(production.synopsis, length: 200, separator: ' ', escape: false), production_path(production), style: 'color: #404041' %></div>
       </div>
     </div>
   <% end %>

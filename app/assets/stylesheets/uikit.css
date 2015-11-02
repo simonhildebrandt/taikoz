@@ -898,9 +898,9 @@ iframe {
 }
 .uk-panel-box {
   padding: 15px;
-  background: #fafafa;
+  background: #f1f1f1;
   color: #404041;
-  border: 1px solid #dddddd;
+  /*border: 1px solid #dddddd;*/
   border-radius: 0;
 }
 .uk-panel-box-hover:hover {
@@ -949,9 +949,9 @@ iframe {
   border-radius: 0;
 }
 .uk-panel-hover:hover {
-  background: #fafafa;
+  background: rgba(209, 35, 41, 0.20);
   color: #404041;
-  border-color: #dddddd;
+  /*border-color: #D12229;*/
 }
 .uk-panel-hover .uk-panel-badge {
   top: 10px;

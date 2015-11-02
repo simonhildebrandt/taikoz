@@ -11,63 +11,43 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label "First Name *" %><br>
-    <%= f.text_field :first_name, size: 60 %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name, size: 60 %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone, size: 60 %>
-  </div>
-  <div class="field">
-    <%= f.label "Email *" %><br>
-    <%= f.text_field :email, size: 60 %>
-  </div>
-  <div class="field">
-    <%= f.label "Organisation *" %><br>
-    <%= f.text_field :organisation_name, size: 60 %>
-  </div>
-  <div class="field">
+<div class="uk-form">
+  <fieldset data-uk-margin>
+    <%= f.text_field :first_name, placeholder: "First Name *" %>
+    <%= f.text_field :last_name, placeholder: "Surname" %>
+  </br>
+    <%= f.text_field :phone, placeholder: "Phone" %>
+  </br>
+    <%= f.text_field :email, placeholder: "Email *" %>
+  </br>
+    <%= f.text_field :organisation_name, placeholder: "Organisation *" %>
+  </br>
+  </br>
     <%= f.label :event_date %><br>
     <%= f.date_select :event_date %>
-  </div>
-  <div class="field">
+  </br>
     <%= f.label :event_time %><br>
     <%= f.time_select :event_time %>
-  </div>
-  <div class="field">
-    <%= f.label :event_location %><br>
-    <%= f.text_field :event_location, size: 60 %>
-  </div>
-  <div class="field">
-    <%= f.label :event_type %><br>
-    <%= f.text_field :event_type, size: 60 %>
-  </div>
-  <div class="field">
-    <%= f.label :performance_requirments %><br>
-    <%= f.text_area :performance_requirments, cols: 43, rows: 5 %>
-  </div>
-  <div class="field">
-    <%= f.label :expected_attendance %><br>
-    <%= f.number_field :expected_attendance, size: 60 %>
-  </div>
-  <div class="field">
-    <%= f.label :budget %><br>
-    <%= f.text_field :budget, size: 60 %>
-  </div>
-  <div class="field">
-    <%= f.label :access_details %><br>
-    <%= f.text_area :access_details, cols: 43, rows: 5 %>
-  </div>
-  <div class="field">
-    <%= f.label :parking_details %><br>
-    <%= f.text_area :parking_details, cols: 43, rows: 5 %>
-  </div>
+  </br>
+  </br>
+    <%= f.text_field :event_location, placeholder: "Location" %>
+  </br>
+    <%= f.text_field :budget, placeholder: "What's the budget?" %>
+  </br>
+    <%= f.text_field :event_type, placeholder: "What type of event?" %>
+  </br>
+    <%= f.number_field :expected_attendance, placeholder: "How many attendees?" %>
+  </br>
+    <%= f.text_area :performance_requirments, placeholder: "What's your vision for Taikoz's performace at your event?", cols: 40, rows: 5 %>
+  </br>
+    <%= f.text_area :access_details, placeholder: "What's access like? We might have some BIG DRUMS!", cols: 40, rows: 5 %>
+  </br>
+    <%= f.text_area :parking_details, placeholder: "Is parking available?", cols: 40, rows: 5 %>
+  </br>
+  </br>
   <div class="actions">
     <%= f.submit "Send", class: 'uk-button uk-button-danger'  %>
   </div>
+  </fieldset>
 <% end %>
+</div>
