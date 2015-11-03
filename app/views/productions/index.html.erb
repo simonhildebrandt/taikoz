@@ -1,4 +1,4 @@
-<h1>Productions/Performances</h1>
+<h1>Productions</h1>
 </br>
 <div class="uk-grid uk-grid-match" data-uk-grid-match="{target:'.uk-panel'}" data-uk-grid-margin>
   <% @productions.each do |production| %>
@@ -10,7 +10,9 @@
           <% end %>
         </div>
         <h2><b><%= link_to production.name, production_path(production), style: 'color: #404041' %></b></h2>
-        <div class="longfont"><%= link_to truncate(production.synopsis, length: 200, separator: ' ', escape: false), production_path(production), style: 'color: #404041' %></div>
+        <div class="longfont">
+          <%= link_to truncate(production.synopsis, length: 200, separator: ' ', escape: false), production_path(production), style: 'color: #404041' %>
+        </div>
       </div>
     </div>
   <% end %>
