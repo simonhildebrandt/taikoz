@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031142420) do
+ActiveRecord::Schema.define(version: 20151105071535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -408,12 +408,15 @@ ActiveRecord::Schema.define(version: 20151031142420) do
     t.string   "state"
     t.string   "postcode"
     t.string   "country"
+    t.integer  "location_id"
   end
 
   add_index "sessions", ["event_id"], name: "index_sessions_on_event_id", using: :btree
+  add_index "sessions", ["location_id"], name: "index_sessions_on_location_id", using: :btree
 
   add_foreign_key "images", "posts"
   add_foreign_key "images", "productions"
   add_foreign_key "locations", "sessions"
   add_foreign_key "sessions", "events"
+  add_foreign_key "sessions", "locations"
 end

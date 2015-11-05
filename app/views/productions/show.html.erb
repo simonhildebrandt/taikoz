@@ -1,8 +1,13 @@
-<div class="uk-responsive-width">
-  <%= @production.video_link.html_safe %>
-  <!-- .embed-responsive.embed-responsive-16by9
-           %iframe.embed-responsive-item(src="#{campaign.video_embed_url}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen) -->
-</div>
+<div>
+  <% if @production.video_link? %>
+     <iframe src="<%= video_embed_url(@production.video_link) %>" class="uk-responsive-width" width="850" height="478" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)></iframe>
+  <% elsif %>
+    <% @production.images.first(1).each do |first_image| %>
+      <%= link_to cl_image_tag(first_image.image, width: 850, height: 478, crop: :fill) %>
+    <% end %>
+  <% end %>
+ </div>
+
 <h1><%= @production.name %></h1>
 <div class="uk-align-medium-right">
   <h3>
@@ -42,3 +47,8 @@
     </div>
   </div>
 </div>
+</br>
+
+<p>
+  <%= link_to image_tag("buttons/Taikoz_Back.png", width: '100'), productions_path, alt: "Back" %>
+</p>

@@ -41,7 +41,8 @@
       </div>
       <div class="col-lg-8">
         <div class="session_margin">
-          <p>
+          <%= casein_select f, f.object, :location_id, options_for_select(location_options, selected: f.object.location_id) %> 
+          <!-- <p>
             <h4>
               Venue
             </h4>
@@ -77,7 +78,7 @@
               Country
               <%= f.text_field :country %>
             </label>
-          </p>
+          </p> -->
         </div>
       </div>
     </div>

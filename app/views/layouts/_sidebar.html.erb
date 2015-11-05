@@ -4,8 +4,24 @@
       <h1>Subscribe</h1>
       <h3><a href="#subscribe-modal" data-uk-modal>Click NOW</a></h3>
       <p>Keep up to date with all Taikoz new by subscribing to our newsletter</p>
+    </br>
       <hr>
-      <%# render "layouts/sidebar_events" if controller_name == 'posts' %>
+      <ul class="uk-grid uk-grid-width-1-4">
+          <li>
+            <a href="https://www.facebook.com/TAIKOZfan" class="uk-icon-hover uk-icon-facebook" style="font-size: 1.6em" target="_blank"></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/Taikoz" class="uk-icon-hover uk-icon-twitter" style="font-size: 1.6em" target="_blank"> </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/user/SynergyandTaikOzLtd" class="uk-icon-hover uk-icon-youtube" style="font-size: 1.6em" target="_blank"> </a>
+          </li>
+          <li>
+            <a href="https://vimeo.com/taikoz" class="uk-icon-hover uk-icon-vimeo" style="font-size: 1.6em" target="_blank"></a>
+          </li>
+
+      </ul>
+      <hr>
       <% if controller_name == 'events' %>
         <%= render "layouts/sidebar_posts" %>
       <% else %>

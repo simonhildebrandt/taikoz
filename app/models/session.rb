@@ -1,7 +1,8 @@
 class Session < ActiveRecord::Base
   belongs_to :event
+  has_one :location
 
-  validates :start_date, :end_date, :venue, presence: :true
+  validates :start_date, :end_date, presence: :true
 
   default_scope -> { order(start_date: :asc) }
 

@@ -7,6 +7,8 @@ class Production < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  enum catagory: [:Mainstage, :Corporate, :School_Show]
+  enum catagory: [:mainstage, :corporate, :school_show, :school_workshop]
+
+
 
 end
