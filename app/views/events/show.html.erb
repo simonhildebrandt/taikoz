@@ -27,7 +27,10 @@
             <h3>
               <%= session.venue %>
             </h3>
-            <%= session.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y") %>
+            <b>
+              <%= session.start_time.strftime("%l:%M%P") if session.start_time? %>
+              <%= session.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y") %>
+            </b>
             <p>
               <%= session.street if session.street? %>
               <%= session.city %>
@@ -45,10 +48,9 @@
             </div>
           </div>
         </div>
+      </br>
         <div class="longfont">
-          <p>
-            <%= sanitize(session.session_details) %>
-          </p>
+          <%= sanitize(session.session_details) %>
         </div>
       </div>
     <% end %>

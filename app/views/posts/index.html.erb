@@ -19,7 +19,7 @@
           </p>
           <div class="longfont">
             <p>
-              <%= truncate(post.content, length: 200, separator: " ", escape: false) %>
+              <%= sanitize(truncate(post.content, length: 200, separator: " ", escape: false)) %>
             </p>
           </div>
 

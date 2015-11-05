@@ -34,7 +34,7 @@
         </p>
         <div class="longfont">
           <p>
-            <%= truncate(event.details, length: 200, separator: " ", escape: false) %>
+            <%= sanitize(truncate(event.details, length: 200, separator: " ", escape: false)) %>
           </p>
         </div>
 

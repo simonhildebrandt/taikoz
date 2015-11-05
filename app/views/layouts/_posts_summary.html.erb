@@ -29,7 +29,7 @@
           </p>
           <div class="longfont">
             <p>
-              <%= truncate(event.details, length: 250, separator: ' ', escape: false) %>
+              <%= sanitize(truncate(event.details, length: 250, separator: ' ', escape: false)) %>
             </p>
           </div>
           <p>
@@ -59,10 +59,9 @@
             Author: <%= post.author %>
           </p>
           <div class="longfont">
-            <p>
-              <%= truncate(post.content, length: 250, separator: ' ', escape: false) %>
-            </p>
+            <%= sanitize(truncate(post.content, length: 250, separator: ' ', escape: false)) %>
           </div>
+        </br>
           <%= link_to image_tag("buttons/Taikoz_LearnMore.png", width: '150'), post_path(post), alt: "Learn More" %>
         </div>
       <% end %>
@@ -71,13 +70,13 @@
       <div class="uk-hidden-small">
         <figure class="uk-overlay uk-overlay-hover">
           <div class="uk-overlay-scale">
-            <%= link_to cl_image_tag("taikoz_follow_us.jpg", :width=>600, :crop=>:scale) %>
+            <%= link_to cl_image_tag("taikoz_follow_us.jpg", :width=>600, :crop=>:scale), href: "https://www.facebook.com/TAIKOZfan" %>
           </div>
         </figure>
       </div>
       <div class="uk-visible-small" style="padding-top: 35px">
         <hr>
-        <h1>Follow Us</h1>
+        <a href="https://www.facebook.com/TAIKOZfan"><h1>Follow Us</h1></a>
       </div>
       <div class="sum_text_pad uk-text-center">
         <!-- <h2 class="uk-hidden-small">SUBSCRIBE <small><a href="#subscribe-modal" data-uk-modal>Click Here</a></small></h2> -->
