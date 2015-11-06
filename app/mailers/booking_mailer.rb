@@ -3,7 +3,7 @@ class BookingMailer < ApplicationMailer
 
   def booking_notification(booking_enquiry_id)
     @booking = BookingEnquiry.find(booking_enquiry_id)
-    mail(to: 'companymanager@taikoz.com', subject: "Taikoz booking enquiry received from #{@booking.organisation_name} for #{@booking.event_date.strftime("%Y""-""%m""-""%d")}")
+    mail(to: ['companymanager@taikoz.com', "lee@synergyandtaikoz.com"], subject: "Taikoz booking enquiry received from #{@booking.organisation_name} for #{@booking.event_date.strftime("%Y""-""%m""-""%d")}")
   end
 
   def booking_response(booking_enquiry_id)

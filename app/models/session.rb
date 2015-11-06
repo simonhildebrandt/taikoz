@@ -1,6 +1,7 @@
 class Session < ActiveRecord::Base
   belongs_to :event
-  has_one :location
+  # has_one :location, dependent: :nullify
+  belongs_to :location
 
   validates :start_date, :end_date, presence: :true
 

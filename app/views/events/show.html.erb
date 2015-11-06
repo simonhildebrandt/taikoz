@@ -20,21 +20,23 @@
 <div class="sum_text_pad">
   <div class="uk-accordion" data-uk-accordion="{showfirst: false}" %>
     <% @sessions.each do |session| %>
-      <h3 class="uk-accordion-title"><%= session.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y") %> <%= session.venue %></h3>
+      <h3 class="uk-accordion-title"><%= session.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y") %> <%= session.location.venue %></h3>
       <div class="uk-accordion-content">
         <div class="uk-grid">
           <div class="uk-width-3-4">
             <h3>
-              <%= session.venue %>
+              <%= session.location.venue %>
             </h3>
             <b>
               <%= session.start_time.strftime("%l:%M%P") if session.start_time? %>
               <%= session.start_date.strftime("%A"" ""%d"" ""%B"" ""%Y") %>
             </b>
             <p>
-              <%= session.street if session.street? %>
-              <%= session.city %>
-              <%= session.state %>
+              <%= session.location.street_add if session.location.street_add? %>
+              <%= session.location.city %>
+              <%= session.location.postcode %>
+              <%= session.location.state %>
+              <%= session.location.country if session.location.country? %>
             </p>
           </div>
           <div class="uk-width-1-4">

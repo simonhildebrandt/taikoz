@@ -20,4 +20,6 @@ class EventsController < ApplicationController
       @event = Event.friendly.find(params[:id])
     end
 
+
+
 end
