@@ -11,10 +11,13 @@
 <h1><%= @production.name %></h1>
 <div class="uk-align-medium-right">
   <h3>
-    <%= link_to "Download Media Pack", @production.media_pack_link,  target: "_blank" if @production.media_pack_link? %>
+    <%= link_to image_tag("buttons/Taikoz_BookNow.png", width: 150), new_booking_enquiry_path, alt: "Book Now" unless @production.catagory == "mainstage" %>
   </h3>
 </div>
-<h3><%= @production.catagory %></h3>
+<h3>
+  Performace Type: <%= @production.catagory.humanize %>
+  <%= link_to "Download Media Pack", @production.media_pack_link,  target: "_blank" if @production.media_pack_link? %>
+</h3>
 <div class="longfont">
   <p><%= sanitize(@production.synopsis) %></p>
 </div>

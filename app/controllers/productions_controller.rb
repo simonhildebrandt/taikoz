@@ -4,11 +4,23 @@ class ProductionsController < ApplicationController
 
   def index
     @productions = Production.all
-    @productions = Production.mainstage if params[:filter] == "mainstage"
-    @productions = Production.corporate if params[:filter] == "corporate"
-    @productions = Production.school_show if params[:filter] == "school_show"
-    @productions = Production.school_workshop if params[:filter] == "school_workshop"
-    @productions = Production.school_show || Production.school_workshop if params[:filter] == "school_all"
+    @heading_text = "All Productions & Workshops"
+    if params[:filter] == "mainstage"
+      @productions = Production.mainstage
+      @heading_text = "Mainstage Productions"
+    elsif params[:filter] == "corporate"
+      @productions = Production.corporate
+      @heading_text = "Corporate Packages"
+    elsif params[:filter] == "school_show"
+      @productions = Production.school_show
+      @heading_text = "School Shows"
+    elsif params[:filter] == "school_workshop"
+      @productions = Production.school_workshop
+      @heading_text = "School Workshops"
+    elsif params[:filter] == "school_all"
+      @productions = Production.school_show || Production.school_workshop
+      @heading_text = "All School Packages"
+    end
   end
 
   def show

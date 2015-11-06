@@ -1,8 +1,8 @@
 <div class="uk-grid">
-  <div class="uk-width-1-1 uk-width-small-1-3">
-    <h1>Productions</h1>
+  <div class="uk-width-1-1 uk-width-small-2-3">
+    <h1><%= @heading_text %></h1>
   </div>
-  <div class="uk-hidden-small uk-width-2-3 uk-text-right" style="padding-top: 10px">
+  <div class="uk-hidden-small uk-width-1-3 uk-text-right" style="padding-top: 10px">
     <div class="uk-button-dropdown" data-uk-dropdown>
       <button class="uk-button">Select Production Type</button>
         <div class="uk-dropdown uk-dropdown-small">
@@ -46,6 +46,7 @@
           <% end %>
         </div>
         <h2><b><%= link_to production.name, production_path(production), style: 'color: #404041' %></b></h2>
+        <h3 style="margin-top: 0px"><%= link_to production.catagory.humanize, production_path(production) %></h3>
         <div class="longfont">
           <%= link_to sanitize(truncate(production.synopsis, length: 200, separator: ' ', escape: false)), production_path(production), style: 'color: #404041' %>
         </div>

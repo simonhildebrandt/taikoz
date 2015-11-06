@@ -1396,11 +1396,11 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   box-sizing: border-box;
   text-decoration: none;
   height: 41px;
-  padding: 0 15px;
+  padding: 0 10px;
   line-height: 40px;
   color: #404041;
-  font-size: 14px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   font-weight: normal;
   margin-top: -1px;
   margin-left: -1px;

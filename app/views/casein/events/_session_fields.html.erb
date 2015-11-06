@@ -31,55 +31,16 @@
           </label>
           <%= f.time_field :duration %>
         </p>
-      </br>
-          <label>
-            Booking Link
-          </label>
-          <p>
-            <%= f.url_field :booking_link, size: 40 %>
-          </p>
+
       </div>
       <div class="col-lg-8">
-        <div class="session_margin">
-          <%= casein_select f, f.object, :location_id, options_for_select(location_options, selected: f.object.location_id) %> 
-          <!-- <p>
-            <h4>
-              Venue
-            </h4>
-            <p>
-              <%= f.text_field :venue, size: 50 %>
-            </p>
-          </p>
-        </br>
-          <h4>Address</h4>
-            <label>
-              Street
-            </label>
-            <p>
-              <%= f.text_field :street, size: 50 %>
-            </p>
-              <label>
-                City
-              </label>
-            <p>
-              <%= f.text_field :city %>
-              <label>
-                State
-              </label>
-              <%= f.text_field :state, size: 6 %>
-              <label>
-                Postcode
-              </label>
-              <p>
-                <%= f.text_field :postcode, size: 8 %>
-              </p>
-          <p>
-            <label>
-              Country
-              <%= f.text_field :country %>
-            </label>
-          </p> -->
-        </div>
+        <%= casein_select f, f.object, :location_id, options_for_select(location_options, selected: f.object.location_id) %>
+        <label>
+          Booking Link
+        </label>
+        <p>
+          <%= f.url_field :booking_link, size: 50 %>
+        </p>
       </div>
     </div>
     <div class="row">
