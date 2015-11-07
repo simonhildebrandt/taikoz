@@ -2,21 +2,21 @@
 
 module Casein
   class LocationsController < Casein::CaseinController
-  
+
     ## optional filters for defining usage according to Casein::AdminUser access_levels
     # before_filter :needs_admin, :except => [:action1, :action2]
     # before_filter :needs_admin_or_current_user, :only => [:action1, :action2]
-  
+
     def index
       @casein_page_title = 'Locations'
   		@locations = Location.order(sort_order(:venue)).paginate :page => params[:page]
     end
-  
+
     def show
       @casein_page_title = 'View location'
       @location = Location.find params[:id]
     end
-  
+
     def new
       @casein_page_title = 'Add a new location'
     	@location = Location.new
@@ -24,7 +24,7 @@ module Casein
 
     def create
       @location = Location.new location_params
-    
+
       if @location.save
         flash[:notice] = 'Location created'
         redirect_to casein_locations_path
@@ -33,12 +33,12 @@ module Casein
         render :action => :new
       end
     end
-  
+
     def update
       @casein_page_title = 'Update location'
-      
+
       @location = Location.find params[:id]
-    
+
       if @location.update_attributes location_params
         flash[:notice] = 'Location has been updated'
         redirect_to casein_locations_path
@@ -47,7 +47,7 @@ module Casein
         render :action => :show
       end
     end
- 
+
     def destroy
       @location = Location.find params[:id]
 
@@ -55,9 +55,9 @@ module Casein
       flash[:notice] = 'Location has been deleted'
       redirect_to casein_locations_path
     end
-  
+
     private
-      
+
       def location_params
         params.require(:location).permit(:venue, :street_add, :city, :state, :postcode, :country)
       end

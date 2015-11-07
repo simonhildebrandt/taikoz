@@ -18,7 +18,7 @@ class ProductionsController < ApplicationController
       @productions = Production.school_workshop.order(name: :asc)
       @heading_text = "School Workshops"
     elsif params[:filter] == "school_all"
-      @productions = Production.school_show.order(name: :asc) || Production.school_workshop.order(name: :asc)
+      @productions = Production.all_schools
       @heading_text = "All School Packages"
     end
   end
