@@ -9,7 +9,7 @@
     </p>
     <div class="longfont">
       <p>
-        <%= truncate(post.content, length: 150, separator: ' ', escape: false) %>
+        <%= sanitize(truncate(post.content, length: 150, separator: ' ', escape: false)) %>
       </p>
     </div>
     <%= link_to image_tag("buttons/Taikoz_LearnMore.png", width: '150'), post_path(post), alt: "Learn More" %>

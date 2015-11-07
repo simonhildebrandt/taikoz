@@ -13,7 +13,7 @@
   </p>
   <div class="longfont">
     <p>
-      <%= truncate(event.details, length: 150, separator: ' ', escape: false) %>
+      <%= sanitize(truncate(event.details, length: 150, separator: ' ', escape: false)) %>
     </p>
   </div>
   <p>
