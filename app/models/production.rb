@@ -9,7 +9,7 @@ class Production < ActiveRecord::Base
 
   enum catagory: [:mainstage, :corporate, :school_show, :school_workshop]
 
-  scope :all_schools, -> { where(catagory:[2, 3]) }
+  scope :all_schools, -> { where(catagory:[2, 3]).order(name: :asc) }
 
 
 end
