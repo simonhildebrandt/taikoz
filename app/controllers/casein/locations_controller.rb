@@ -26,8 +26,13 @@ module Casein
       @location = Location.new location_params
 
       if @location.save
-        flash[:notice] = 'Location created'
-        redirect_to casein_locations_path
+        respond_to do |format|
+          format.html do
+            flash[:notice] = 'Location created'
+            redirect_to casein_locations_path
+          end
+          format.js { }
+        end
       else
         flash.now[:warning] = 'There were problems when trying to create a new location'
         render :action => :new

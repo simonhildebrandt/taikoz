@@ -16,3 +16,40 @@
 <%= content_for :sidebar do %>
 	<li><%= link_to "#{casein_show_icon "th-list"}Back to list".html_safe, casein_events_path %></li>
 <% end %>
+
+
+<!--Modal-->
+<div class="modal fade" id="newVenue" tabindex="-1" role="dialog" aria-labelledby="newVenue">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">New Venue</h4>
+      </div>
+      <div class="modal-body">
+				<%= form_for @location, url: casein_locations_path, remote: true do |f| %>
+					<p>
+						<%= f.text_field :venue, placeholder: "Venue" %>
+					</p>
+					<p>
+						<%= f.text_field :street_add, placeholder: "Street" %>
+					</p>
+					<p>
+						<%= f.text_field :city, placeholder: "City" %>
+					</p>
+					<p>
+						<%= f.text_field :state, placeholder: "State" %> <%= f.text_field :postcode, placeholder: "Postcode" %>
+					</p>
+					<p>
+						<%= f.text_field :country, placeholder: "Country" %>
+					</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<%= f.submit "Save Venue", class: "btn btn-primary" %>
+
+      </div>
+			<% end %>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
