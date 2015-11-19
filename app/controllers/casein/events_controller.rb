@@ -15,6 +15,7 @@ module Casein
     def show
       @casein_page_title = 'View event'
       @event = Event.friendly.find params[:id]
+      @location = Location.new
     end
 
     def new

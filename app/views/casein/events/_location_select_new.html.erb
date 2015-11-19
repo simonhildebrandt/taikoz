@@ -1,0 +1,7 @@
+<div id="venue_select">
+  <%= form_for :event do |event| %>
+    <%= event.fields_for :sessions do |f| %>
+      <%= casein_select f, f.object, :location_id, options_for_select(location_options) %>
+    <% end %>
+  <% end %>
+</div>
