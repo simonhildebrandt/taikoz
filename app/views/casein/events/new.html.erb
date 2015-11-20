@@ -27,6 +27,7 @@
         <h4 class="modal-title">New Venue</h4>
       </div>
       <div class="modal-body">
+
 				<%= form_for @location, url: casein_locations_path, remote: true do |f| %>
 					<p>
 						<%= f.text_field :venue, placeholder: "Venue" %>

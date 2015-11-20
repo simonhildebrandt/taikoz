@@ -7,6 +7,7 @@ module Casein
     # before_filter :needs_admin, :except => [:action1, :action2]
     # before_filter :needs_admin_or_current_user, :only => [:action1, :action2]
 
+
     def index
       @casein_page_title = 'Locations'
   		@locations = Location.order(sort_order(:venue)).paginate :page => params[:page]
@@ -24,14 +25,16 @@ module Casein
 
     def create
       @location = Location.new location_params
+      @event = Event.new
 
       if @location.save
         respond_to do |format|
           format.html do
-            flash[:notice] = 'Location created'
+            flash[:notice] = "New Venue created"
             redirect_to casein_locations_path
           end
           format.js { }
+            flash[:notice] = "New Venue created"
         end
       else
         flash.now[:warning] = 'There were problems when trying to create a new location'
@@ -60,6 +63,7 @@ module Casein
       flash[:notice] = 'Location has been deleted'
       redirect_to casein_locations_path
     end
+
 
     private
 

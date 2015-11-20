@@ -65,5 +65,6 @@ module Casein
       def event_params
         params.require(:event).permit(:name, :details, :image, :image_cache, :_destroy, :remove_image, :event_status, sessions_attributes: [:id, :event_id, :_destroy, :start_date, :end_date, :start_time, :duration, :booking_link, :session_details, :location_id])
       end
+
   end
 end

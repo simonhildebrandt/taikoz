@@ -36,8 +36,9 @@
       <div class="col-lg-8">
         <%# casein_select f, f.object, :location_id, options_for_select(location_options, selected: f.object.location_id) %>
 
-        <%= render "location_select", f: f %>
-        <div class="pull-right">
+        <%= render "casein/locations/location_select", f: f %>
+
+      <div class="pull-right">
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#newVenue">
             Add a New Venue
         </button>
