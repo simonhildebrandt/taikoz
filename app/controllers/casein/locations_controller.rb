@@ -25,7 +25,6 @@ module Casein
 
     def create
       @location = Location.new location_params
-      @event = Event.new
 
       if @location.save
         respond_to do |format|
@@ -33,8 +32,7 @@ module Casein
             flash[:notice] = "New Venue created"
             redirect_to casein_locations_path
           end
-          format.js { }
-            flash[:notice] = "New Venue created"
+          format.js 
         end
       else
         flash.now[:warning] = 'There were problems when trying to create a new location'

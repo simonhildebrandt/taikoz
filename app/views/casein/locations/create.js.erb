@@ -1,2 +1,19 @@
-$("#venue_select").replaceWith("<%= escape_javascript(render partial: 'location_select') %>");
+var locations = <%= location_options.to_json.html_safe %>;
+var select_boxes = $(".venue_select select");
+
+$.each(select_boxes, function(index, item){
+  select_box = $(item);
+
+  // Cache current selection
+  var current_option = select_box.val();
+  // Clear all the options
+  select_box.empty();
+  // Write all the new locations into the select box
+  $.each(locations, function(index, location){
+    select_boxes.append($("<option></option>").attr("value",location[1]).text(location[0]));
+  });
+  // Re-assert the previous selection if there was one and it's present
+  select_box.val(current_option);
+});
+
 $("#newVenue").modal("hide");

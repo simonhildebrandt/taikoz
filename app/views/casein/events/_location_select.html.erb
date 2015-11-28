@@ -1,3 +1,3 @@
-<div id="venue_select">
-    <%= casein_select f, f.object, :location_id, options_for_select(location_options, selected: f.object.location_id) %>
+<div class="venue_select">
+    <%= casein_select f, f.object, :location_id, options_for_select(location_options, selected: f.object.location_id), casein_label: "Venue" %>
 </div>
